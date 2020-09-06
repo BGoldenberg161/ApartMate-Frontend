@@ -31,7 +31,7 @@ const NavBar = (props) => {
                         </ul>
                         : <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
-                                <NavLink className="nav-link" exact to="/register">Create Account</NavLink>
+                                <NavLink className="nav-link" exact to="/register">Signup</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link" exact to="/login">Login</NavLink>
