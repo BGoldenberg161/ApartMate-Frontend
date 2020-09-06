@@ -10,6 +10,7 @@ import About from './components/About'
 import Footer from './components/Footer'
 import NavBar from './components/Navbar'
 import './App.css';
+import CreateGroup from './components/CreateGroup';
 
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -77,9 +78,11 @@ function App() {
             path="/login"
             render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} />}
           />
+          {/* Need to add a CreateGroup route somehwere here...might also be a nav */}
           <Route path="/about" component={ About } />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
           <Route exact path="/" component={ HomePage } />
+          <Route path="/creategroup" component={ CreateGroup }/>
         </Switch>
       </div>
       <Footer />
@@ -89,5 +92,3 @@ function App() {
 }
 
 export default App;
-
-// testing
