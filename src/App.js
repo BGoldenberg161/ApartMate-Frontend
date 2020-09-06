@@ -5,7 +5,7 @@ import setAuthToken from './utils/setAuthToken'
 import Register from './components/Register'
 import Login from './components/Login'
 import Profile from './components/Profile'
-import Welcome from './components/Welcome'
+import HomePage from './components/HomePage'
 import About from './components/About'
 import Footer from './components/Footer'
 import NavBar from './components/Navbar'
@@ -61,7 +61,7 @@ function App() {
           />
           <Route path="/about" component={ About } />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
-          <Route exact path="/" component={ Welcome } />
+          <Route exact path="/" component={ HomePage } />
         </Switch>
       </div>
       <Footer />
