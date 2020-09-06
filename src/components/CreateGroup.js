@@ -1,4 +1,4 @@
-import React, {useState, center } from 'react';
+import React, {useState, center, absolute } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from '../utils/setAuthToken';
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.success.main,
+    backgroundColor: theme.palette.success.main
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -84,10 +84,12 @@ const CreateGroup = (props) => {
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
-        </Avatar>
+        </Avatar> 
+        {/* missing avatar logo here */}
         <Typography component="h1" variant="h3">
           Welcome, <div style={{textAlign: center}}>Alpha</div>
-          <br /><br/>
+          {/* missing center text here */}
+          <br />
         </Typography>
         <form onSubmit={handleSubmit} className={classes.form}>
           <TextField
