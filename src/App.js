@@ -11,6 +11,24 @@ import Footer from './components/Footer'
 import NavBar from './components/Navbar'
 import './App.css';
 
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+import blue from '@material-ui/core/colors/blue';
+
+const theme = createMuiTheme({
+  palette: {
+      primary: {
+          main: blue[700],
+      },
+      secondary: {
+          main: '#a2a3ac',
+      },
+      success: {
+        main: '#66BB6A',
+      },
+    },
+});
+
 const PrivateRoute = ({ component: Component, ...rest}) => {
   const user = localStorage.getItem('jwtToken')
   return <Route {...rest} render={(props) => {
@@ -19,7 +37,6 @@ const PrivateRoute = ({ component: Component, ...rest}) => {
 }
 
 function App() {
-
   let [currentUser, setCurrentUser] = useState('')
   let [isAuthenticated, setIsAuthenticated] = useState(true)
 
@@ -51,6 +68,7 @@ function App() {
   
   return (
     <div>
+      <ThemeProvider theme={theme}>
       <NavBar handleLogout={handleLogout} isAuth={isAuthenticated}/>
       <div className="container mt-5">
         <Switch>
@@ -65,6 +83,7 @@ function App() {
         </Switch>
       </div>
       <Footer />
+      </ThemeProvider>
     </div>
   );
 }
