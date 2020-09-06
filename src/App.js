@@ -11,6 +11,7 @@ import Footer from './components/Footer'
 import NavBar from './components/Navbar'
 import './App.css';
 import CreateGroup from './components/CreateGroup';
+import GroupUrl from './components/GroupUrl';
 
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -83,6 +84,7 @@ function App() {
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
           <Route exact path="/" component={ HomePage } />
           <Route path="/creategroup" component={ CreateGroup }/>
+          <Route path="/groupurl" component={ GroupUrl } />
         </Switch>
       </div>
       <Footer />

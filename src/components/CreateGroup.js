@@ -105,7 +105,7 @@ const CreateGroup = (props) => {
             autoFocus
             color="secondary"
           />
-
+          {/* add a design to button  */}
           <Button
             type="submit"
             fullWidth
