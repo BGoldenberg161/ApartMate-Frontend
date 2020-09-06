@@ -36,7 +36,7 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(0),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
   form: {
     width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+    marginTop: theme.spacing(0),
     borderRadius: 4
   },
   submit: {
@@ -104,7 +104,7 @@ const Login = (props) => {
         </Typography>
         <form onSubmit={handleSubmit} className={classes.form}>
           <TextField
-            label="email"
+            label="Email"
             type="email"
             name="email"
             value={email}
@@ -117,7 +117,7 @@ const Login = (props) => {
             color="secondary"
           />
           <TextField
-            label="password"
+            label="Password"
             type="password"
             name="password"
             value={password}

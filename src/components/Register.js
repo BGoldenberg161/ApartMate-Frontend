@@ -1,14 +1,64 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom'
+// importing material UI components___________________________________
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+
+// _______________________________________________________________________
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
+
+function Copyright() {
+    return (
+      <Typography variant="body2" color="textSecondary" align="center">
+        {'apartmate © '}
+        {' '}
+        {new Date().getFullYear()}
+        {'.'}
+      </Typography>
+    );
+  }
+
+  const useStyles = makeStyles((theme) => ({
+    paper: {
+      marginTop: theme.spacing(0),
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: theme.palette.success.main,
+    },
+    form: {
+      width: '100%', // Fix IE 11 issue.
+      marginTop: theme.spacing(0),
+      borderRadius: 4
+    },
+    submit: {
+      margin: theme.spacing(3, 0, 2),
+    },
+  }));
 
 const Register = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
+    const [phoneNumber, setPhoneNumber] = useState ('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [redirect, setRedirect] = useState(false)
+    const classes = useStyles();
     
     const handleName = (e) => {
         setName(e.target.value)
@@ -16,6 +66,10 @@ const Register = () => {
 
     const handleEmail = (e) => {
         setEmail(e.target.value)
+    }
+
+    const handlePhoneNumber = (e) => {
+        setPhoneNumber(e.target.value)
     }
     
     const handlePassword = (e) => {
@@ -42,34 +96,104 @@ const Register = () => {
     
     if(redirect) return <Redirect to="/login" />
 
-    return(
-        <div className="row mt-4">
-            <div className="col-md-7 offset-md-3">
-                <div className="card card-body">
-                    <h2 className="py-2">Register</h2>
-                    <form onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <label htmlFor="name">Name</label>
-                            <input type="text" name="name" value={name} onChange={handleName} className="form-control"></input>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">Email</label>
-                            <input type="email" name="email" value={email} onChange={handleEmail} className="form-control"></input>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="password">Password</label>
-                            <input type="password" name="password" value={password} onChange={handlePassword} className="form-control"></input>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="confirmPassword">Confirm Password</label>
-                            <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleConfirmPassword} className="form-control"></input>
-                        </div>
-                        <button type="submit" className="btn btn-primary float-right">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-export default Register
+    return (
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <div className={classes.paper}>
+            <Avatar className={classes.avatar}>
+              <LockOutlinedIcon />
+            </Avatar>
+            <Typography component="h1" variant="h3">
+              Sign Up
+            </Typography>
+            <Typography variant="p">
+              Create a new account.
+            </Typography>
+            <form onSubmit={handleSubmit} className={classes.form}>
+                <TextField
+                    label="Name"
+                    type="name"
+                    name="name"
+                    value={name}
+                    onChange={handleName}
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    autoFocus
+                    color="secondary"
+                />
+                <TextField
+                    label="Email"
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={handleEmail}
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    autoFocus
+                    color="secondary"
+                />
+                <TextField
+                    label="Phone Number"
+                    type="phoneNumber"
+                    name="phoneNumber"
+                    value={phoneNumber}
+                    onChange={handlePhoneNumber}
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    autoFocus
+                    color="secondary"
+                />
+                <TextField
+                    label="Password"
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={handlePassword}
+                    variant="outlined"
+                    margin="normal"
+                    fullWidth
+                    required
+                    color="secondary"
+                />
+            
+              <FormControlLabel
+                control={<Checkbox value="remember" color="primary" />}
+                label="Remember me"
+              />
+    
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                Sign Up
+              </Button>
+    
+              <Grid container>
+                <Grid item xs>
+                
+                </Grid>
+                <Grid item>
+                  <Link href="http://localhost:3000/login" variant="body2">
+                    {"Already have an account? Login"}
+                  </Link>
+                </Grid>
+              </Grid>
+            </form>
+          </div>
+          <Box mt={8}>
+            <Copyright />
+          </Box>
+        </Container>
+      );
+    }
+    
+    export default Register;
