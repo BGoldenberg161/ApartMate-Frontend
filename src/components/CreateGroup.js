@@ -5,7 +5,7 @@ import React, {useState, center, absolute } from 'react';
 // import { Redirect } from 'react-router-dom';
 
 // importing material UI components___________________________________
-import Avatar from '@material-ui/core/Avatar';
+import AvatarGroup from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -43,7 +43,9 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.success.main
+    backgroundColor: theme.palette.success.main,
+
+
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -82,9 +84,11 @@ const CreateGroup = (props) => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+        <AvatarGroup className={classes.avatar}
+        alt="Photo 1" src="https://raw.githubusercontent.com/CeamKrier/react-peeps/HEAD/example.png"
+        alt="Photo 2" src="https://raw.githubusercontent.com/CeamKrier/react-native-peeps/HEAD/example.png">
           <LockOutlinedIcon />
-        </Avatar> 
+        </AvatarGroup> 
         {/* missing avatar logo here */}
         <Typography component="h1" variant="h3">
           Welcome, <div style={{textAlign: center}}>Alpha</div>

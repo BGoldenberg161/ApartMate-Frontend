@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AcceptInvite = (props) => {
+const Accept = (props) => {
     const [groupName, setGroupName] = useState('')
     
     const classes = useStyles();
@@ -100,15 +100,6 @@ const AcceptInvite = (props) => {
           >
             Accept Group Invitation!
           </Button>
-          <Grid container>
-            <Grid item xs>
-            </Grid>
-            <Grid item>
-                <Link href="http://localhost:3000/login" variant="body2">
-                {"Already have an account? Login"}
-                </Link>
-            </Grid>
-            </Grid>
         </form>
       </div>
       <Box mt={4}>
@@ -118,4 +109,4 @@ const AcceptInvite = (props) => {
   );
 }
 
-export default AcceptInvite;
+export default Accept;
