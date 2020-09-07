@@ -15,7 +15,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -41,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    marginTop: '-90px'
   },
   avatar: {
     margin: theme.spacing(1),
@@ -53,6 +53,9 @@ const useStyles = makeStyles((theme) => ({
   large: {
     width: theme.spacing(7),
     height: theme.spacing(7),
+  },
+  margin: {
+    marginTop: '-80px'
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -96,8 +99,8 @@ const CreateGroup = (props) => {
           <Avatar id="icon3" alt="Remy Sharp" src="https://blush.ly/WdB5j5nah/p" className={classes.large} /> 
           <Avatar id="icon4" alt="Remy Sharp" src="https://blush.ly/o0Z0Q4CgA/p" />
           <Avatar id="icon5" alt="Remy Sharp" src="https://blush.ly/gSkbM8vcD/p" />       
-          <Typography component="h1" variant="h3"> <br />
-          Welcome, <div style={{textAlign: center}}>Alpha</div>
+          <Typography component="h1" variant="h3" className={classes.margin}>
+          Welcome, <div class="username">username</div>
           {/* missing center text here */}
           <br />
         </Typography>
@@ -123,7 +126,7 @@ const CreateGroup = (props) => {
             color="primary"
             className={classes.submit}
           >
-            Create your group!
+            ♥️ Create your group!
           </Button>
         </form>
       </div>
