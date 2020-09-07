@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CreateGroup = (props) => {
+const AcceptInvite = (props) => {
     const [groupName, setGroupName] = useState('')
     
     const classes = useStyles();
@@ -87,24 +87,9 @@ const CreateGroup = (props) => {
         </Avatar> 
         {/* missing avatar logo here */}
         <Typography component="h1" variant="h3">
-          Welcome, <div style={{textAlign: center}}>Alpha</div>
-          {/* missing center text here */}
-          <br />
+            You've been invited to ...
         </Typography>
         <form onSubmit={handleSubmit} className={classes.form}>
-          <TextField
-            label="Group Name"
-            type="groupName"
-            name="groupName"
-            value={groupName}
-            onChange={handleGroupName}
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            autoFocus
-            color="secondary"
-          />
           {/* add a design to button  */}
           <Button
             type="submit"
@@ -113,8 +98,17 @@ const CreateGroup = (props) => {
             color="primary"
             className={classes.submit}
           >
-            Create your group!
+            Accept Group Invitation!
           </Button>
+          <Grid container>
+            <Grid item xs>
+            </Grid>
+            <Grid item>
+                <Link href="http://localhost:3000/login" variant="body2">
+                {"Already have an account? Login"}
+                </Link>
+            </Grid>
+            </Grid>
         </form>
       </div>
       <Box mt={4}>
@@ -124,4 +118,4 @@ const CreateGroup = (props) => {
   );
 }
 
-export default CreateGroup;
+export default AcceptInvite;
