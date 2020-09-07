@@ -77,8 +77,9 @@ function App() {
     <div>
       <ThemeProvider theme={theme}>
       {/* <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)}/> */}
-      <NavBar handleLogout={handleLogout} isAuth={isAuthenticated}/>
       <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)}/>
+
+      <NavBar handleLogout={handleLogout} isAuth={isAuthenticated}/>
       <div className="">
           <Route path="/register" component={ Register } />
           <Route
