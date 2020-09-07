@@ -118,7 +118,7 @@ const GroupUrl = (props) => {
           </Button>
         </form>
       </div>
-      <Box mt={8}>
+      <Box mt={4}>
         <Copyright />
       </Box>
     </Container>
