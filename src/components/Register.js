@@ -176,17 +176,9 @@ const Register = () => {
               >
                 Sign Up
               </Button>
-    
-              <Grid container>
-                <Grid item xs>
-                
-                </Grid>
-                <Grid item>
-                  <Link href="http://localhost:3000/login" variant="body2">
-                    {"Already have an account? Login"}
-                  </Link>
-                </Grid>
-              </Grid>
+              <Link href="http://localhost:3000/login" variant="body2">
+                {"Already have an account? Login"}
+              </Link>
             </form>
           </div>
           <Box mt={8}>

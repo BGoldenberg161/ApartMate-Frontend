@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import jwt_decode from 'jwt-decode'
 import setAuthToken from './utils/setAuthToken'
 import Register from './components/Register'
@@ -9,28 +9,15 @@ import HomePage from './components/HomePage'
 import About from './components/About'
 import Footer from './components/Footer'
 import NavBar from './components/Navbar'
+import Chores from './components/Chores'
 import './App.css';
 import CreateGroup from './components/CreateGroup';
 import GroupUrl from './components/GroupUrl';
 import Accept from './components/Accept'
 
-import { createMuiTheme } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
-
-const theme = createMuiTheme({
-  palette: {
-      primary: {
-          main: blue[700],
-      },
-      secondary: {
-          main: '#a2a3ac',
-      },
-      success: {
-        main: '#66BB6A',
-      },
-    },
-});
+import Switch from '@material-ui/core/Switch';
 
 const PrivateRoute = ({ component: Component, ...rest}) => {
   const user = localStorage.getItem('jwtToken')
@@ -40,6 +27,24 @@ const PrivateRoute = ({ component: Component, ...rest}) => {
 }
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false); 
+  const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: blue[700],
+        },
+        secondary: {
+            main: '#a2a3ac',
+        },
+        success: {
+          main: '#66BB6A',
+        },
+        //if dark mode is true then have the type be dark, if not default to light
+        type: darkMode ? "dark" : "light",
+      },
+  });
+
+
   let [currentUser, setCurrentUser] = useState('')
   let [isAuthenticated, setIsAuthenticated] = useState(true)
 
@@ -72,9 +77,10 @@ function App() {
   return (
     <div>
       <ThemeProvider theme={theme}>
+      <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)}/>
       <NavBar handleLogout={handleLogout} isAuth={isAuthenticated}/>
-      <div className="container mt-5">
-        <Switch>
+      <div className="">
+        
           <Route path="/register" component={ Register } />
           <Route
             path="/login"
@@ -82,9 +88,13 @@ function App() {
           />
           {/* Need to add a CreateGroup route somehwere here...might also be a nav */}
           <Route path="/about" component={ About } />
+          <Route path="/chores" component={ Chores } user={currentUser} />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
+          {/* <PrivateRoute path="/chores" componenet={ Chores } user={currentUser} /> */}
           <Route exact path="/" component={ HomePage } />
-        </Switch>
+          <Route path="/creategroup" component={ CreateGroup }/>
+          <Route path="/groupurl" component={ GroupUrl } />
+          <Route path="/accept" component={ Accept }/>
       </div>
       <Footer />
       </ThemeProvider>
