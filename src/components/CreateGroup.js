@@ -1,11 +1,12 @@
 import React, {useState, center, absolute } from 'react';
+
 // import axios from 'axios';
 // import jwt_decode from 'jwt-decode';
 // import setAuthToken from '../utils/setAuthToken';
 // import { Redirect } from 'react-router-dom';
 
 // importing material UI components___________________________________
-import AvatarGroup from '@material-ui/core/Avatar';
+import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -43,9 +44,15 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.success.main,
-
-
+    backgroundColor: theme.palette.success.main
+  },
+  small: {
+    width: theme.spacing(3),
+    height: theme.spacing(3),
+  },
+  large: {
+    width: theme.spacing(7),
+    height: theme.spacing(7),
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -84,13 +91,12 @@ const CreateGroup = (props) => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <AvatarGroup className={classes.avatar}
-        alt="Photo 1" src="https://raw.githubusercontent.com/CeamKrier/react-peeps/HEAD/example.png"
-        alt="Photo 2" src="https://raw.githubusercontent.com/CeamKrier/react-native-peeps/HEAD/example.png">
-          <LockOutlinedIcon />
-        </AvatarGroup> 
-        {/* missing avatar logo here */}
-        <Typography component="h1" variant="h3">
+          <Avatar id="icon" alt="people icon" src="https://raw.githubusercontent.com/CeamKrier/react-native-peeps/HEAD/example.png" />
+          <Avatar id="icon2" alt="Remy Sharp" src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e53534d67293a6fe95a9616_peep-22.svg" />
+          <Avatar id="icon3" alt="Remy Sharp" src="https://blush.ly/WdB5j5nah/p" className={classes.large} /> 
+          <Avatar id="icon4" alt="Remy Sharp" src="https://blush.ly/o0Z0Q4CgA/p" />
+          <Avatar id="icon5" alt="Remy Sharp" src="https://blush.ly/gSkbM8vcD/p" />       
+          <Typography component="h1" variant="h3"> <br />
           Welcome, <div style={{textAlign: center}}>Alpha</div>
           {/* missing center text here */}
           <br />
