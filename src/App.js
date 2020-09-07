@@ -9,6 +9,7 @@ import HomePage from './components/HomePage'
 import About from './components/About'
 import Footer from './components/Footer'
 import NavBar from './components/Navbar'
+import Chores from './components/Chores'
 import './App.css';
 
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -78,7 +79,9 @@ function App() {
             render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} />}
           />
           <Route path="/about" component={ About } />
+          <Route path="/chores" component={ Chores } user={currentUser} />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
+          {/* <PrivateRoute path="/chores" componenet={ Chores } user={currentUser} /> */}
           <Route exact path="/" component={ HomePage } />
         </Switch>
       </div>
