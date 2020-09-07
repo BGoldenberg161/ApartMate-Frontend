@@ -9,7 +9,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import CheckIcon from '@material-ui/icons/Check';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -39,6 +39,10 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.success.main
+  },
+  large: {
+    width: theme.spacing(7),
+    height: theme.spacing(7),
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -77,15 +81,14 @@ const Accept = (props) => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+        <Avatar className={classes.avatar} >
+          <CheckIcon />
         </Avatar> 
-        {/* missing avatar logo here */}
         <Typography component="h1" variant="h3">
             You've been invited to ...
         </Typography>
         <form onSubmit={handleSubmit} className={classes.form}>
-          {/* add a design to button  */}
+          <br /><br />
           <Button
             type="submit"
             fullWidth
@@ -93,7 +96,7 @@ const Accept = (props) => {
             color="primary"
             className={classes.submit}
           >
-            Accept Group Invitation!
+            🤝 Accept Group Invitation!
           </Button>
         </form>
       </div>
