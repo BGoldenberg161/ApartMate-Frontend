@@ -7,6 +7,10 @@ body {
 	margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
+.makeStyles-paper-20 {
+	margin-top: -90px;
+}
+
 .footer {
 	position: absolute;
 	bottom: 0;
@@ -74,4 +78,19 @@ body {
 	border: 2px solid #18191F;
 	box-sizing: border-box;
 	border-radius: 166px;
-	}
+}
+
+.username {
+	text-align: center;
+}
+
+.MuiTypography-h3 {
+    font-size: 3rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.167;
+    letter-spacing: 0em;
+    margin-top: -80px;
+}
+
+
