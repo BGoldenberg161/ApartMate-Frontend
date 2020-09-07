@@ -10,7 +10,8 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import CheckIcon from '@material-ui/icons/Check';
+import LinkIcon from '@material-ui/icons/Link';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
@@ -78,19 +79,18 @@ const GroupUrl = (props) => {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+        <Avatar id="check" className={classes.avatar} >
+          <CheckIcon />
         </Avatar> 
-        {/* missing avatar logo here */}
         <Typography component="h1" variant="h3">
           Welcome to <div> apartmate!</div>
         </Typography>
-        <Typography variant="p">
+        <Typography variant="p"><br />
             the last steps: invite your roommates
-        </Typography>
+        </Typography><br />
         <form onSubmit={handleSubmit} className={classes.form}>
           <TextField
-            label="Group URL Goes Here"
+            label="🔗 Group URL"
             type="groupName"
             name="groupName"
             value={groupUrl}
@@ -102,7 +102,6 @@ const GroupUrl = (props) => {
             autoFocus
             color="secondary"
           />
-          {/* add a design to button  */}
           <Button
             type="submit"
             fullWidth
@@ -110,7 +109,7 @@ const GroupUrl = (props) => {
             color="primary"
             className={classes.submit}
           >
-            Copy Invite Link
+            <LinkIcon /> Copy Invite Link
           </Button>
         </form>
       </div>
