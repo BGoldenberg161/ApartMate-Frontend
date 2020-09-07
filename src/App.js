@@ -84,9 +84,6 @@ function App() {
           <Route path="/about" component={ About } />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
           <Route exact path="/" component={ HomePage } />
-          <Route path="/creategroup" component={ CreateGroup }/>
-          <Route path="/groupurl" component={ GroupUrl } />
-          <Route path="/accept" component={ Accept }/>
         </Switch>
       </div>
       <Footer />
