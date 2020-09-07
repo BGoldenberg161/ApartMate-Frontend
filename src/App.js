@@ -12,7 +12,7 @@ import NavBar from './components/Navbar'
 import './App.css';
 import CreateGroup from './components/CreateGroup';
 import GroupUrl from './components/GroupUrl';
-import AcceptInvite from './components/AcceptInvite'
+import Accept from './components/Accept'
 
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -86,7 +86,7 @@ function App() {
           <Route exact path="/" component={ HomePage } />
           <Route path="/creategroup" component={ CreateGroup }/>
           <Route path="/groupurl" component={ GroupUrl } />
-          <Route path="/acceptinvite" component={ AcceptInvite }/>
+          <Route path="/accept" component={ Accept }/>
         </Switch>
       </div>
       <Footer />

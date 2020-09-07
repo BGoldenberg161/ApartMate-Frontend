@@ -25,7 +25,7 @@ const NavBar = (props) => {
                             <NavLink className="nav-link" to="/groupurl">Group Invite</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/acceptinvite">Accept Invite</NavLink>
+                            <NavLink className="nav-link" to="/accept">Accept Invite</NavLink>
                         </li>
                     </ul>
                     {
