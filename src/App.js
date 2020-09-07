@@ -44,7 +44,6 @@ function App() {
       },
   });
 
-
   let [currentUser, setCurrentUser] = useState('')
   let [isAuthenticated, setIsAuthenticated] = useState(true)
 
@@ -77,10 +76,10 @@ function App() {
   return (
     <div>
       <ThemeProvider theme={theme}>
-      <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)}/>
+      {/* <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)}/> */}
       <NavBar handleLogout={handleLogout} isAuth={isAuthenticated}/>
+      <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)}/>
       <div className="">
-        
           <Route path="/register" component={ Register } />
           <Route
             path="/login"
@@ -92,7 +91,6 @@ function App() {
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
           {/* <PrivateRoute path="/chores" componenet={ Chores } user={currentUser} /> */}
           <Route exact path="/" component={ HomePage } />
-        
       </div>
       <Footer />
       </ThemeProvider>
