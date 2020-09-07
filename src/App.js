@@ -9,6 +9,7 @@ import HomePage from './components/HomePage'
 import About from './components/About'
 import Footer from './components/Footer'
 import NavBar from './components/Navbar'
+import Chores from './components/Chores'
 import './App.css';
 import CreateGroup from './components/CreateGroup';
 import GroupUrl from './components/GroupUrl';
@@ -81,7 +82,9 @@ function App() {
           />
           {/* Need to add a CreateGroup route somehwere here...might also be a nav */}
           <Route path="/about" component={ About } />
+          <Route path="/chores" component={ Chores } user={currentUser} />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
+          {/* <PrivateRoute path="/chores" componenet={ Chores } user={currentUser} /> */}
           <Route exact path="/" component={ HomePage } />
           <Route path="/creategroup" component={ CreateGroup }/>
           <Route path="/groupurl" component={ GroupUrl } />
