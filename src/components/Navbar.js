@@ -18,6 +18,15 @@ const NavBar = (props) => {
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/about">About</NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/creategroup">Create Group</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/groupurl">Group Invite</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/acceptinvite">Accept Invite</NavLink>
+                        </li>
                     </ul>
                     {
                         props.isAuth ? 

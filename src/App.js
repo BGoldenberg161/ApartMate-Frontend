@@ -11,6 +11,9 @@ import Footer from './components/Footer'
 import NavBar from './components/Navbar'
 import Chores from './components/Chores'
 import './App.css';
+import CreateGroup from './components/CreateGroup';
+import GroupUrl from './components/GroupUrl';
+import AcceptInvite from './components/AcceptInvite'
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
@@ -83,6 +86,7 @@ function App() {
             path="/login"
             render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} />}
           />
+          {/* Need to add a CreateGroup route somehwere here...might also be a nav */}
           <Route path="/about" component={ About } />
           <Route path="/chores" component={ Chores } user={currentUser} />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
@@ -97,5 +101,3 @@ function App() {
 }
 
 export default App;
-
-// testing
