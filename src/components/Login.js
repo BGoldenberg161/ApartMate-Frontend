@@ -25,7 +25,7 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'apartmate © '}
+      {'apartMate © '}
       {' '}
       {new Date().getFullYear()}
       {'.'}
@@ -57,12 +57,11 @@ const useStyles = makeStyles((theme) => ({
 const Login = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    // const [phoneNumber, setPhoneNumber] = useState('')
     const classes = useStyles();
 
     const handleSubmit = (e) => {
       e.preventDefault()
-      const userData = {email, password}
+      const userData = { email, password };
       axios.post(`${REACT_APP_SERVER_URL}/api/users/login`, userData)
         .then(response => {
             const { token } = response.data
@@ -82,10 +81,6 @@ const Login = (props) => {
         setPassword(e.target.value)
     }
 
-    // const handlePhoneNumber = (e) => {
-    //     setPhoneNumber(e.target.value)
-    // }
-
     if(props.user) return <Redirect to='/profile' user={props.user} />
 
   return (
@@ -98,8 +93,8 @@ const Login = (props) => {
         <Typography component="h1" variant="h3">
           Login
         </Typography>
-        <Typography variant="p">
-          Welcome back to apartmate.
+        <Typography variant="body1">
+          Welcome back to apartMate.
         </Typography>
         <form onSubmit={handleSubmit} className={classes.form}>
           <TextField
@@ -142,6 +137,7 @@ const Login = (props) => {
           >
             Login
           </Button>
+          </form>
 
           <Grid container>
             <Grid item xs>
@@ -155,7 +151,6 @@ const Login = (props) => {
               </Link>
             </Grid>
           </Grid>
-        </form>
       </div>
       <Box mt={8}>
         <Copyright />

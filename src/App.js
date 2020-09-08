@@ -29,12 +29,12 @@ const PrivateRoute = ({ component: Component, ...rest}) => {
 function App() {
   const [darkMode, setDarkMode] = useState(false); 
   const theme = createMuiTheme({
-    palette: {
+      palette: {
         primary: {
-            main: blue[700],
+          main: blue[700],
         },
         secondary: {
-            main: '#a2a3ac',
+          main: '#a2a3ac',
         },
         success: {
           main: '#66BB6A',
@@ -42,10 +42,10 @@ function App() {
         //if dark mode is true then have the type be dark, if not default to light
         type: darkMode ? "dark" : "light",
       },
-  });
+    });
 
-  let [currentUser, setCurrentUser] = useState('')
-  let [isAuthenticated, setIsAuthenticated] = useState(true)
+  const [currentUser, setCurrentUser] = useState('')
+  const [isAuthenticated, setIsAuthenticated] = useState(true)
 
   useEffect(() => {
     let token
@@ -65,21 +65,23 @@ function App() {
     setIsAuthenticated(true)
   }
 
-  const handleLogout =() => {
+  const handleLogout = () => {
     if(localStorage.getItem('jwtToken')){
       localStorage.removeItem('jwtToken')
       setCurrentUser(null)
       setIsAuthenticated(false)
     }
   }
+
+  console.log('Current User', currentUser);
+  console.log('Authenicated', isAuthenticated);
   
   return (
     <div>
       <ThemeProvider theme={theme}>
       {/* <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)}/> */}
-      <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)}/>
-
       <NavBar handleLogout={handleLogout} isAuth={isAuthenticated}/>
+      <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)}/>
       <div className="">
           <Route path="/register" component={ Register } />
           <Route

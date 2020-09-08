@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import axios from 'axios'
-import {Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
+
 // importing material UI components___________________________________
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -54,9 +55,8 @@ function Copyright() {
 const Register = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
-    const [phoneNumber, setPhoneNumber] = useState ('')
     const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
+    const [phone, setPhone] = useState ('')
     const [redirect, setRedirect] = useState(false)
     const classes = useStyles();
     
@@ -68,33 +68,29 @@ const Register = () => {
         setEmail(e.target.value)
     }
 
-    const handlePhoneNumber = (e) => {
-        setPhoneNumber(e.target.value)
+    const handlePhone = (e) => {
+        setPhone(e.target.value)
     }
     
     const handlePassword = (e) => {
         setPassword(e.target.value)
     }
 
-    const handleConfirmPassword = (e) => {
-        setConfirmPassword(e.target.value)
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(password === confirmPassword){
-            const newUser = { name, email, password }
+        if(password){
+            const newUser = { name, email, password, phone }
 
             axios.post(`${REACT_APP_SERVER_URL}/api/users/register`, newUser)
             .then(response => {
                 console.log(response)
                 setRedirect(true)
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log("😲", err))
         }
     }
     
-    if(redirect) return <Redirect to="/login" />
+    if (redirect) return <Redirect to="/login" />
 
     return (
         <Container component="main" maxWidth="xs">
@@ -106,7 +102,7 @@ const Register = () => {
             <Typography component="h1" variant="h3">
               Sign Up
             </Typography>
-            <Typography variant="p">
+            <Typography variant="body1">
               Create a new account.
             </Typography>
             <form onSubmit={handleSubmit} className={classes.form}>
@@ -137,11 +133,11 @@ const Register = () => {
                     color="secondary"
                 />
                 <TextField
-                    label="Phone Number"
-                    type="phoneNumber"
-                    name="phoneNumber"
-                    value={phoneNumber}
-                    onChange={handlePhoneNumber}
+                    label="Phone"
+                    type="phone"
+                    name="phone"
+                    value={phone}
+                    onChange={handlePhone}
                     variant="outlined"
                     margin="normal"
                     required
@@ -166,7 +162,6 @@ const Register = () => {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-    
               <Button
                 type="submit"
                 fullWidth
@@ -176,10 +171,11 @@ const Register = () => {
               >
                 Sign Up
               </Button>
+              </form>
               <Link href="http://localhost:3000/login" variant="body2">
                 {"Already have an account? Login"}
               </Link>
-            </form>
+           
           </div>
           <Box mt={8}>
             <Copyright />
@@ -189,3 +185,5 @@ const Register = () => {
     }
     
     export default Register;
+
+
