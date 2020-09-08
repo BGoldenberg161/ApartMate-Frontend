@@ -13,7 +13,7 @@ import Chores from './components/Chores';
 import './App.css';
 import CreateGroup from './components/CreateGroup';
 import GroupUrl from './components/GroupUrl';
-// import AcceptInvite from './components/AcceptInvite';
+import Accept from './components/Accept';
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
@@ -103,6 +103,9 @@ function App() {
 					{/* Need to add a CreateGroup route somehwere here...might also be a nav */}
 					<Route path='/about' component={About} />
 					<Route path='/chores' component={Chores} user={currentUser} />
+					<Route path='/accept' component={Accept} />
+					<Route path='/groupurl' component={GroupUrl} />
+					<Route path='/creategroup' component={CreateGroup} />
 					<PrivateRoute
 						path='/profile'
 						component={Profile}

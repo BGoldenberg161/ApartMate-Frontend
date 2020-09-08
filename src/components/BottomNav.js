@@ -71,9 +71,9 @@ const BottomNav = () => {
 				icon={<GroupAddOutlinedIcon />}
 			/>
 			<BottomNavigationAction
-				value='acceptinvite'
+				value='accept'
 				component={Link}
-				to='/acceptinvite'
+				to='/accept'
 				label='Accept Invite'
 				icon={<HowToRegOutlinedIcon />}
 			/>
