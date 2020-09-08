@@ -1,9 +1,6 @@
-import React, {useState, center, absolute } from 'react';
-
-// import axios from 'axios';
-// import jwt_decode from 'jwt-decode';
-// import setAuthToken from '../utils/setAuthToken';
-// import { Redirect } from 'react-router-dom';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 // importing material UI components___________________________________
 import Avatar from '@material-ui/core/Avatar';
@@ -64,23 +61,27 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const CreateGroup = (props) => {
+    const groupUser = props.user
+
     const [groupName, setGroupName] = useState('')
+    // const [groupUser, setGroupUser] = useState(props.user) 
+    //state that holds in the group id 
     
     
     const classes = useStyles();
 
     const handleSubmit = (e) => {
       e.preventDefault()
-    //   const userData = {email, password}
-    //   axios.post(`${REACT_APP_SERVER_URL}/api/users/login`, userData)
-    //     .then(response => {
-    //         const { token } = response.data
-    //         localStorage.setItem('jwtToken', token)
-    //         setAuthToken(token)
-    //         const decoded = jwt_decode(token)
-    //         props.nowCurrentUser(decoded)
-    //     })
-    //     .catch(err => console.log(`Login Error`, err))
+      console.log(groupName)
+
+      // const data = { groupName }
+
+      axios.post(`${REACT_APP_SERVER_URL}/groups/create`, {groupName, groupUser})
+        .then(response => {
+          console.log(response)
+          //redirect to groups page or group invite to send invite
+        })
+        .catch(err => console.log(`Create group Error Branden`, err))
     }
 
     const handleGroupName = (e) => {
@@ -97,7 +98,7 @@ const CreateGroup = (props) => {
           <Avatar id="icon4" alt="Remy Sharp" src="https://blush.ly/o0Z0Q4CgA/p" />
           <Avatar id="icon5" alt="Remy Sharp" src="https://blush.ly/gSkbM8vcD/p" />       
           <Typography component="h1" variant="h3" className={classes.margin}>
-          Welcome, <div class="username">username</div>
+           Welcome, <div className="username">{props.user.name}</div>
           {/* missing center text here */}
           <br />
         </Typography>
