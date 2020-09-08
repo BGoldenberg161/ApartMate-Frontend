@@ -13,11 +13,7 @@ import Chores from './components/Chores';
 import './App.css';
 import CreateGroup from './components/CreateGroup';
 import GroupUrl from './components/GroupUrl';
-<<<<<<< HEAD
-import AcceptInvite from './components/AcceptInvite';
-=======
-import Accept from './components/Accept'
->>>>>>> 796daf8ccd60b01b35b5dc411c9e42e6a6d382db
+import Accept from './components/Accept';
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
@@ -40,7 +36,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 };
 
 function App() {
-<<<<<<< HEAD
 	const [darkMode, setDarkMode] = useState(false);
 	const theme = createMuiTheme({
 		palette: {
@@ -72,27 +67,6 @@ function App() {
 			setIsAuthenticated(true);
 		}
 	}, []);
-=======
-  const [darkMode, setDarkMode] = useState(false); 
-  const theme = createMuiTheme({
-      palette: {
-        primary: {
-          main: blue[700],
-        },
-        secondary: {
-          main: '#a2a3ac',
-        },
-        success: {
-          main: '#66BB6A',
-        },
-        //if dark mode is true then have the type be dark, if not default to light
-        type: darkMode ? "dark" : "light",
-      },
-    });
-
-  const [currentUser, setCurrentUser] = useState('')
-  const [isAuthenticated, setIsAuthenticated] = useState(true)
->>>>>>> 796daf8ccd60b01b35b5dc411c9e42e6a6d382db
 
 	const nowCurrentUser = userData => {
 		console.log('nowCurrentUser is working...');
@@ -129,6 +103,9 @@ function App() {
 					{/* Need to add a CreateGroup route somehwere here...might also be a nav */}
 					<Route path='/about' component={About} />
 					<Route path='/chores' component={Chores} user={currentUser} />
+					<Route path='/accept' component={Accept} />
+					<Route path='/groupurl' component={GroupUrl} />
+					<Route path='/creategroup' component={CreateGroup} />
 					<PrivateRoute
 						path='/profile'
 						component={Profile}
