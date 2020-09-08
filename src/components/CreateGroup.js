@@ -67,6 +67,7 @@ const CreateGroup = (props) => {
     // const [groupUser, setGroupUser] = useState(props.user) 
     //state that holds in the group id 
     
+    
     const classes = useStyles();
 
     const handleSubmit = (e) => {
