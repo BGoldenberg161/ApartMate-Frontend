@@ -9,6 +9,15 @@ import { Button } from '@material-ui/core';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
+function Copyright() {
+	return (
+		<Typography variant='body2' color='textSecondary' align='center'>
+			{'apartMate © '} {new Date().getFullYear()}
+			{'.'}
+		</Typography>
+	);
+}
+
 const HomePage = () => {
 	return (
 		<>
@@ -88,6 +97,7 @@ const HomePage = () => {
 						<p className='legend'>Yoel Morad</p>
 					</div>
 				</Carousel>
+				<Copyright />
 			</Grid>
 		</>
 	);
