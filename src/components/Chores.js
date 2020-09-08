@@ -15,7 +15,8 @@ import AssignmentIcon from '@material-ui/icons/Assignment';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 const useStyles = makeStyles((theme) => ({
@@ -40,10 +41,42 @@ const useStyles = makeStyles((theme) => ({
 const Chores = (props) => {
     const userData = props.user 
     const classes = useStyles();
+    const [newChore, setNewChore] = useState(' ')
     const [selectedValue, setSelectedValue] = useState('')
+    const [checked, setChecked] = useState(false);
+    const chores = ["take out trash", "clean rooms", "feed the dog", "wash dishes", "etc.."];
+    //______________________________________________________
 
-    const handleChange = (e) => {
-        setSelectedValue(e.target.value)
+     //when checkbox is checked, what happens?
+    //chore turns green for completed
+    const handleChange = (e, chore) => {
+        setChecked(e.target.checked)
+        console.log("✅✅✅", {chore})
+    }
+
+    const listItems = chores.map((chore) =>
+    <div>
+        <li className="listStyle" style={{ listStyleType: "none" }} >
+            <Checkbox
+                onChange={handleChange}
+                inputProps={{ 'aria-label': 'primary checkbox' }}
+            />
+            {chore}
+        </li>
+    </div>
+
+        );
+
+
+    //adds a chore to the list when plus button is clicked
+    //this works
+    const addChore = (e) => {
+        console.log('chore has been added');
+    }
+
+    //setting value of the new chore
+    const handleNewChore = (e) => {
+        setNewChore(e.target.value)
     }
 
     return (
@@ -54,110 +87,26 @@ const Chores = (props) => {
             <AssignmentIcon />
         </Avatar>
         <h1>Chores Page</h1>
-        <form className={classes.form}></form>
-        <div>
-            <h3>Monday</h3>
-            <TextField
-                label="Chores"
-                backgroundColor="secondary"
-            />
-            <Radio
-                onChange={handleChange}
-                value="Completed"
-                color="secondary"
-                name="Completed"
-                size= "small" 
-            />
-            <br></br>
-            <Icon color="primary">add_circle</Icon>
-            <h3>Tuesday</h3>
-            <TextField
-                label="Chores"
-                backgroundColor="secondary"
-            />
-            <Radio
-                onChange={handleChange}
-                value="Completed"
-                color="secondary"
-                name="Completed"
-                size= "small" 
-            />
-            <br></br>
-            <Icon color="primary">add_circle</Icon>
-            <h3>Wednesday</h3>
-            <TextField
-                label="Chores"
-                backgroundColor="secondary"
-            />
-            <Radio
-                onChange={handleChange}
-                value="Completed"
-                color="secondary"
-                name="Completed"
-                size= "small" 
-            />
-            <br></br>
-            <Icon color="primary">add_circle</Icon>
-            <h3>Thursday</h3>
-            <TextField
-                label="Chores"
-                backgroundColor="secondary"
-            />
-            <Radio
-                onChange={handleChange}
-                value="Completed"
-                color="secondary"
-                name="Completed"
-                size= "small" 
-            />
-            <br></br>
-            <Icon color="primary">add_circle</Icon>
-            <h3>Friday</h3>
-            <TextField
-                label="Chores"
-                backgroundColor="secondary"
-            />
-            <Radio
-                onChange={handleChange}
-                value="Completed"
-                color="secondary"
-                name="Completed"
-                size= "small" 
-            />
-            <br></br>
-            <Icon color="primary">add_circle</Icon>
-            <h3>Saturday</h3>
-            <TextField
-                label="Chores"
-                backgroundColor="secondary"
-            />
-            <Radio
-                onChange={handleChange}
-                value="Completed"
-                color="secondary"
-                name="Completed"
-                size= "small" 
-            />
-            <br></br>
-            <Icon color="primary">add_circle</Icon>
-            <h3>Sunday</h3>
-            <TextField
-                label="Chores"
-                backgroundColor="secondary"
-            />
-            <Radio
-                onChange={handleChange}
-                value="Completed"
-                color="secondary"
-                name="Completed"
-                size= "small" 
-            />
-            <br></br>
-            <Icon color="primary">add_circle</Icon>
-        </div>
+        
+        <TextField 
+            label="Add A Chore"
+            type="newChore"
+            name="newChore"
+            value={newChore}
+            onChange={handleNewChore}
+        />
+        <IconButton color="primary">
+            <AddCircleIcon onClick={addChore}/>
+        </IconButton>
+        
+            <h3>Current Chores</h3>
+            <div>
+            {listItems}
+            </div>
     </div>
     </Container>
     );
 }
 
 export default Chores;
+
