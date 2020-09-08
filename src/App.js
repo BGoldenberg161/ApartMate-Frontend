@@ -13,7 +13,7 @@ import Chores from './components/Chores'
 import './App.css';
 import CreateGroup from './components/CreateGroup';
 import GroupUrl from './components/GroupUrl';
-import AcceptInvite from './components/AcceptInvite'
+import Accept from './components/Accept'
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';

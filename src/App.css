@@ -7,6 +7,10 @@ body {
 	margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
+.makeStyles-paper-20 {
+	margin-top: -90px;
+}
+
 .footer {
 	position: absolute;
 	bottom: 0;
@@ -14,3 +18,83 @@ body {
 	height: 60px; /* Set the fixed height of the footer here */
 	line-height: 60px; /* Vertically center the text there */
 }
+
+#icon {
+	width: 79px;
+    height: 79px;
+	/* Colors / Pink */
+	background: #FF89BB;
+	/* Colors / Black */
+	right: 80px;
+    top: 135px;
+    width: 79px;
+    height: 79px;
+    background: #FF89BB;
+    border: 2px solid #18191F;
+    box-sizing: border-box;
+    border-radius: 166px;
+}
+
+#icon2{
+	width: 79px;
+    height: 79px;
+    left: 80px;
+    top: 53px;
+    background: #F95A2C;
+    border: 2px solid #18191F;
+    box-sizing: border-box;
+    border-radius: 166px;
+}
+
+#icon3 {
+	width: 79px;
+    height: 79px;
+	background: #00C6AE;
+    border: 2px solid #18191F;
+    box-sizing: border-box;
+    border-radius: 166px;
+    margin: auto;
+}
+
+#icon4 {
+	width: 79px;
+    height: 79px;
+	right: 60px;
+	top: -20px;
+    background: #FFBD12;
+    border: 2px solid #18191F;
+    box-sizing: border-box;
+    border-radius: 166px;
+}
+
+#icon5 {
+	width: 79px;
+	height: 79px;
+	left: 60px;
+	top: -100px;
+	/* Contra / Blue */
+	background: #1947E6;
+	/* Colors / Black */
+	border: 2px solid #18191F;
+	box-sizing: border-box;
+	border-radius: 166px;
+}
+
+.username {
+	text-align: center;
+}
+
+.MuiTypography-h3 {
+    font-size: 3rem;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 1.167;
+    letter-spacing: 0em;
+    margin-top: -80px;
+}
+
+#check {
+	width: 79px;
+	height: 79px;
+}
+
