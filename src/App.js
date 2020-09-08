@@ -88,6 +88,9 @@ function App() {
           />
           {/* Need to add a CreateGroup route somehwere here...might also be a nav */}
           <Route path="/about" component={ About } />
+          <Route path="/accept" component={ Accept }/>
+          <Route path="/groupurl" component={ GroupUrl }/>
+          <Route path="/creategroup" component={ CreateGroup }/>
           <Route path="/chores" component={ Chores } user={currentUser} />
           <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
           {/* <PrivateRoute path="/chores" componenet={ Chores } user={currentUser} /> */}
