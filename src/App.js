@@ -105,7 +105,15 @@ function App() {
 					<Route path='/chores' component={Chores} user={currentUser} />
 					<Route path='/accept' component={Accept} />
 					<Route path='/groupurl' component={GroupUrl} />
-					<Route path='/creategroup' component={CreateGroup} />
+					<Route path='/creategroup' 
+							render={props => (
+								<CreateGroup 
+								{...props}
+								nowCurrentUser={nowCurrentUser}
+								user={currentUser}
+								/>
+							)}
+					/>
 					<PrivateRoute
 						path='/profile'
 						component={Profile}
