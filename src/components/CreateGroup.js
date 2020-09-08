@@ -66,6 +66,7 @@ const useStyles = makeStyles((theme) => ({
 const CreateGroup = (props) => {
     const [groupName, setGroupName] = useState('')
     
+    
     const classes = useStyles();
 
     const handleSubmit = (e) => {
