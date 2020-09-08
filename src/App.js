@@ -1,32 +1,78 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Redirect } from 'react-router-dom'
-import jwt_decode from 'jwt-decode'
-import setAuthToken from './utils/setAuthToken'
-import Register from './components/Register'
-import Login from './components/Login'
-import Profile from './components/Profile'
-import HomePage from './components/HomePage'
-import About from './components/About'
-import Footer from './components/Footer'
-import NavBar from './components/Navbar'
-import Chores from './components/Chores'
+import { Route, Redirect } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
+import setAuthToken from './utils/setAuthToken';
+import Register from './components/Register';
+import Login from './components/Login';
+import Profile from './components/Profile';
+import HomePage from './components/HomePage';
+import About from './components/About';
+import NavBar from './components/Navbar';
+import BottomNav from './components/BottomNav';
+import Chores from './components/Chores';
 import './App.css';
 import CreateGroup from './components/CreateGroup';
 import GroupUrl from './components/GroupUrl';
+<<<<<<< HEAD
+import AcceptInvite from './components/AcceptInvite';
+=======
 import Accept from './components/Accept'
+>>>>>>> 796daf8ccd60b01b35b5dc411c9e42e6a6d382db
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import Switch from '@material-ui/core/Switch';
 
-const PrivateRoute = ({ component: Component, ...rest}) => {
-  const user = localStorage.getItem('jwtToken')
-  return <Route {...rest} render={(props) => {
-    return user ? <Component {...rest} {...props} /> : <Redirect to="/login" />
-  }} />
-}
+const PrivateRoute = ({ component: Component, ...rest }) => {
+	const user = localStorage.getItem('jwtToken');
+	return (
+		<Route
+			{...rest}
+			render={props => {
+				return user ? (
+					<Component {...rest} {...props} />
+				) : (
+					<Redirect to='/login' />
+				);
+			}}
+		/>
+	);
+};
 
 function App() {
+<<<<<<< HEAD
+	const [darkMode, setDarkMode] = useState(false);
+	const theme = createMuiTheme({
+		palette: {
+			primary: {
+				main: blue[700],
+			},
+			secondary: {
+				main: '#a2a3ac',
+			},
+			success: {
+				main: '#66BB6A',
+			},
+			//if dark mode is true then have the type be dark, if not default to light
+			type: darkMode ? 'dark' : 'light',
+		},
+	});
+
+	let [currentUser, setCurrentUser] = useState('');
+	let [isAuthenticated, setIsAuthenticated] = useState(true);
+
+	useEffect(() => {
+		let token;
+		if (!localStorage.getItem('jwtToken')) {
+			setIsAuthenticated(false);
+		} else {
+			token = jwt_decode(localStorage.getItem('jwtToken'));
+			setAuthToken(localStorage.jwtToken);
+			setCurrentUser(token);
+			setIsAuthenticated(true);
+		}
+	}, []);
+=======
   const [darkMode, setDarkMode] = useState(false); 
   const theme = createMuiTheme({
       palette: {
@@ -46,62 +92,55 @@ function App() {
 
   const [currentUser, setCurrentUser] = useState('')
   const [isAuthenticated, setIsAuthenticated] = useState(true)
+>>>>>>> 796daf8ccd60b01b35b5dc411c9e42e6a6d382db
 
-  useEffect(() => {
-    let token
-    if(!localStorage.getItem('jwtToken')) {
-      setIsAuthenticated(false)
-    } else {
-      token = jwt_decode(localStorage.getItem('jwtToken'))
-      setAuthToken(localStorage.jwtToken)
-      setCurrentUser(token)
-      setIsAuthenticated(true)
-    }
-  }, [])
+	const nowCurrentUser = userData => {
+		console.log('nowCurrentUser is working...');
+		setCurrentUser(userData);
+		setIsAuthenticated(true);
+	};
 
-  const nowCurrentUser = (userData) => {
-    console.log('nowCurrentUser is working...')
-    setCurrentUser(userData)
-    setIsAuthenticated(true)
-  }
+	const handleLogout = () => {
+		if (localStorage.getItem('jwtToken')) {
+			localStorage.removeItem('jwtToken');
+			setCurrentUser(null);
+			setIsAuthenticated(false);
+		}
+	};
 
-  const handleLogout = () => {
-    if(localStorage.getItem('jwtToken')){
-      localStorage.removeItem('jwtToken')
-      setCurrentUser(null)
-      setIsAuthenticated(false)
-    }
-  }
-
-  console.log('Current User', currentUser);
-  console.log('Authenicated', isAuthenticated);
-  
-  return (
-    <div>
-      <ThemeProvider theme={theme}>
-      {/* <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)}/> */}
-      <NavBar handleLogout={handleLogout} isAuth={isAuthenticated}/>
-      <Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)}/>
-      <div className="">
-          <Route path="/register" component={ Register } />
-          <Route
-            path="/login"
-            render={ (props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser} />}
-          />
-          {/* Need to add a CreateGroup route somehwere here...might also be a nav */}
-          <Route path="/about" component={ About } />
-          <Route path="/accept" component={ Accept }/>
-          <Route path="/groupurl" component={ GroupUrl }/>
-          <Route path="/creategroup" component={ CreateGroup }/>
-          <Route path="/chores" component={ Chores } user={currentUser} />
-          <PrivateRoute path="/profile" component={ Profile } user={currentUser} />
-          {/* <PrivateRoute path="/chores" componenet={ Chores } user={currentUser} /> */}
-          <Route exact path="/" component={ HomePage } />
-      </div>
-      <Footer />
-      </ThemeProvider>
-    </div>
-  );
+	return (
+		<div>
+			<ThemeProvider theme={theme}>
+				<Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
+				<NavBar handleLogout={handleLogout} isAuth={isAuthenticated} />
+				<div className=''>
+					<Route path='/register' component={Register} />
+					<Route
+						path='/login'
+						render={props => (
+							<Login
+								{...props}
+								nowCurrentUser={nowCurrentUser}
+								setIsAuthenticated={setIsAuthenticated}
+								user={currentUser}
+							/>
+						)}
+					/>
+					{/* Need to add a CreateGroup route somehwere here...might also be a nav */}
+					<Route path='/about' component={About} />
+					<Route path='/chores' component={Chores} user={currentUser} />
+					<PrivateRoute
+						path='/profile'
+						component={Profile}
+						user={currentUser}
+					/>
+					{/* <PrivateRoute path="/chores" componenet={ Chores } user={currentUser} /> */}
+					<Route exact path='/' component={HomePage} />
+				</div>
+				<BottomNav />
+			</ThemeProvider>
+		</div>
+	);
 }
 
 export default App;
