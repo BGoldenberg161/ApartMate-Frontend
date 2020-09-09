@@ -11,6 +11,8 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
 
 // _______________________________________________________________________
 
@@ -77,6 +79,7 @@ const Groups = (props) => {
         .catch(err => console.log(`Get groups error:`, err))
     }, [])
 
+    
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -85,6 +88,9 @@ const Groups = (props) => {
               return <div key={i}> {g.name} </div>
           })}
       </div>
+        <Link href="http://localhost:3000/creategroup" variant="body2">
+          {"Create a new group!"}
+        </Link>
       <Box mt={4}>
         <Copyright />
       </Box>

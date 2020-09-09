@@ -90,7 +90,7 @@ const GroupUrl = (props) => {
         </Typography><br />
         <form onSubmit={handleSubmit} className={classes.form}>
           <TextField
-            label="🔗 Group URL"
+            label="🔗 Group URL Goes Here"
             type="groupName"
             name="groupName"
             value={groupUrl}
