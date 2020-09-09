@@ -5,9 +5,7 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 function TodoForm(props) {
 	const [input, setInput] = useState(props.edit ? props.edit.value : '');
 	const thisUser = props.user;
-	const [taskDetail, setTaskDetail] = useState(
-		'No wammies, no wammies, no wammies'
-	);
+	const [taskDetail, setTaskDetail] = useState('');
 	const group = props.groupId;
 	const [rep, isRep] = useState(true);
 
@@ -17,8 +15,12 @@ function TodoForm(props) {
 		inputRef.current.focus();
 	});
 
-	const handleChange = e => {
+	const handleInput = e => {
 		setInput(e.target.value);
+	};
+
+	const handleDetail = e => {
+		setTaskDetail(e.target.value);
 	};
 
 	const handleSubmit = e => {
@@ -39,7 +41,8 @@ function TodoForm(props) {
 
 		props.onSubmit({
 			id: Math.floor(Math.random() * 10000),
-			taskName: input,
+      taskName: input,
+      taskDetail: taskDetail
 		});
 		setInput('');
 	};
@@ -51,7 +54,7 @@ function TodoForm(props) {
 					<input
 						placeholder='Update your item'
 						value={input}
-						onChange={handleChange}
+						onChange={handleInput}
 						name='taskName'
 						ref={inputRef}
 						className='todo-input edit'
@@ -65,11 +68,20 @@ function TodoForm(props) {
 					<input
 						placeholder='Add a todo'
 						value={input}
-						onChange={handleChange}
+						onChange={handleInput}
 						name='taskName'
 						className='todo-input'
 						ref={inputRef}
 					/>
+					<input
+						placeholder='Task Details'
+						value={taskDetail}
+						onChange={handleDetail}
+						name='taskDetail'
+						className='todo-input'
+						ref={inputRef}
+					/>
+
 					<button onClick={handleSubmit} className='todo-button'>
 						Add todo
 					</button>
