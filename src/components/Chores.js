@@ -18,6 +18,7 @@ import Container from '@material-ui/core/Container';
 import IconButton from '@material-ui/core/IconButton';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { Paper } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -54,6 +55,11 @@ const Chores = (props) => {
         console.log("✅✅✅", {chore})
     }
 
+    // <paper 
+    
+    
+    
+    // />
     const listItems = chores.map((chore) =>
     <div>
         <li className="listStyle" style={{ listStyleType: "none" }} >
@@ -64,9 +70,7 @@ const Chores = (props) => {
             {chore}
         </li>
     </div>
-
         );
-
 
     //adds a chore to the list when plus button is clicked
     //this works
@@ -98,7 +102,6 @@ const Chores = (props) => {
         <IconButton color="primary">
             <AddCircleIcon onClick={addChore}/>
         </IconButton>
-        
             <h3>Current Chores</h3>
             <div>
             {listItems}

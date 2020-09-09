@@ -81,7 +81,7 @@ const Login = (props) => {
         setPassword(e.target.value)
     }
 
-    if(props.user) return <Redirect to='/profile' user={props.user} />
+    if(props.user) return <Redirect to='/creategroup' user={props.user} />
 
   return (
     <Container component="main" maxWidth="xs">
