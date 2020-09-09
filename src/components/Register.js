@@ -172,7 +172,7 @@ const Register = () => {
                 Sign Up
               </Button>
               </form>
-              <Link href="http://localhost:3000/login" variant="body2">
+              <Link href="/login" variant="body2">
                 {"Already have an account? Login"}
               </Link>
           </div>

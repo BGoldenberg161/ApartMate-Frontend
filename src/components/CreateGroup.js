@@ -12,9 +12,6 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-
-//testing
-
 // _______________________________________________________________________
 
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL

@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, BrowserRouter as Router } from 'react';
 import axios from 'axios';
-// import { Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import Details from './Details';
+
 
 // importing material UI components___________________________________
 // import Avatar from '@material-ui/core/Avatar';
@@ -79,16 +81,15 @@ const Groups = (props) => {
         .catch(err => console.log(`Get groups error:`, err))
     }, [])
 
-    
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
           {groupNames.map((g,i) => {
-              return <div key={i}> {g.name} </div>
+              return <Link href={`/details/${g.id}`}> {g.name} </Link>
           })}
       </div>
-        <Link href="http://localhost:3000/creategroup" variant="body2">
+        <Link href="/creategroup" variant="body2">
           {"Create a new group!"}
         </Link>
       <Box mt={4}>

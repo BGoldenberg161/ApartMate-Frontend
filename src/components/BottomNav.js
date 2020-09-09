@@ -57,18 +57,11 @@ const BottomNav = () => {
 				icon={<AccountCircleOutlinedIcon />}
 			/>
 			<BottomNavigationAction
-				value='create'
+				value='groups'
 				component={Link}
-				to='/creategroup'
-				label='Create Group'
+				to='/groups'
+				label='Groups'
 				icon={<AddCircleOutlineOutlinedIcon />}
-			/>
-			<BottomNavigationAction
-				value='invite'
-				component={Link}
-				to='/groupurl'
-				label='Invite'
-				icon={<GroupAddOutlinedIcon />}
 			/>
 			<BottomNavigationAction
 				value='accept'

@@ -15,6 +15,7 @@ import CreateGroup from './components/CreateGroup';
 import GroupUrl from './components/GroupUrl';
 import Accept from './components/Accept';
 import Groups from './components/Groups';
+import Details from './components/Details'
 
 //testtingtesting
 
@@ -108,6 +109,8 @@ function App() {
 					<Route path='/chores' component={Chores} user={currentUser} />
 					<Route path='/accept' component={Accept} />
 					<Route path='/groupurl' component={GroupUrl} />
+					<Route path='/details' component={Details} />
+
 					<Route path='/groups'
 						render={props => (
 							<Groups
