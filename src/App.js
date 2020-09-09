@@ -14,7 +14,7 @@ import './App.css';
 import CreateGroup from './components/CreateGroup';
 import GroupUrl from './components/GroupUrl';
 import Accept from './components/Accept';
-// import ChoresTest from './components/ChoresTest';
+import Groups from './components/Groups';
 
 //testtingtesting
 
@@ -108,15 +108,23 @@ function App() {
 					<Route path='/chores' component={Chores} user={currentUser} />
 					<Route path='/accept' component={Accept} />
 					<Route path='/groupurl' component={GroupUrl} />
-          {/* <Route path='/chorestest' component={ChoresTest} /> */}
+					<Route path='/groups'
+						render={props => (
+							<Groups
+							{...props}
+							nowCurrentUser={nowCurrentUser}
+							user={currentUser}
+							/>
+						)}
+					/>
 					<Route path='/creategroup' 
-							render={props => (
-								<CreateGroup 
-								{...props}
-								nowCurrentUser={nowCurrentUser}
-								user={currentUser}
-								/>
-							)}
+						render={props => (
+							<CreateGroup 
+							{...props}
+							nowCurrentUser={nowCurrentUser}
+							user={currentUser}
+							/>
+						)}
 					/>
 					<PrivateRoute
 						path='/profile'
@@ -133,4 +141,3 @@ function App() {
 }
 
 export default App;
-
