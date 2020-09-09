@@ -9,7 +9,7 @@ import HomePage from './components/HomePage';
 import About from './components/About';
 import NavBar from './components/Navbar';
 import BottomNav from './components/BottomNav';
-import Chores from './components/Chores';
+import Todo from './components/Todo';
 import './App.css';
 import CreateGroup from './components/CreateGroup';
 import GroupUrl from './components/GroupUrl';
@@ -21,6 +21,7 @@ import Groups from './components/Groups';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import Switch from '@material-ui/core/Switch';
+import TodoList from './components/TodoList';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
 	const user = localStorage.getItem('jwtToken');
@@ -105,7 +106,7 @@ function App() {
 					/>
 					{/* Need to add a CreateGroup route somehwere here...might also be a nav */}
 					<Route path='/about' component={About} />
-					<Route path='/chores' component={Chores} user={currentUser} />
+					<Route path='/chores' component={TodoList} user={currentUser} />
 					<Route path='/accept' component={Accept} />
 					<Route path='/groupurl' component={GroupUrl} />
 					<Route path='/groups'
