@@ -175,7 +175,6 @@ const Register = () => {
               <Link href="http://localhost:3000/login" variant="body2">
                 {"Already have an account? Login"}
               </Link>
-           
           </div>
           <Box mt={8}>
             <Copyright />

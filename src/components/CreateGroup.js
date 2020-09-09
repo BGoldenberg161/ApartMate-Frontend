@@ -67,6 +67,7 @@ const CreateGroup = (props) => {
     const groupUser = props.user
 
     const [groupName, setGroupName] = useState('')
+    const [newGroup, setNewGroup] = useState(false)
     // const [groupUser, setGroupUser] = useState(props.user) 
     //state that holds in the group id 
     
@@ -81,15 +82,19 @@ const CreateGroup = (props) => {
       axios.post(`${REACT_APP_SERVER_URL}/groups/create`, {groupName, groupUser})
         .then(response => {
           console.log(response)
-          //redirect to groups page or group invite to send invite
+          setNewGroup(true)
         })
         .catch(err => console.log(`Create group Error Branden`, err))
+      
     }
 
     const handleGroupName = (e) => {
         setGroupName(e.target.value)
     }
 
+      if (newGroup) return <Redirect to='/groups' user={props.user} />
+
+    
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
