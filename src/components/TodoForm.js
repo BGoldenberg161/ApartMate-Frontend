@@ -5,11 +5,12 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
 
 function TodoForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : '');
-  const [user, setUser] = useState(props.user)
+  const [thisUser, setThisUser] = useState(props.user)
   const [taskDetail, setTaskDetail] = useState('No wammies, no wammies, no wammies')
   const [group, setGroup] = useState(`5f555fdfc294e44af3aca930`)
   const [rep, isRep] = useState(true)
-  console.log(props.user)
+  console.log(thisUser)
+  const theUser = props.user
 
   const inputRef = useRef(null);
 
@@ -24,7 +25,7 @@ function TodoForm(props) {
   const handleSubmit = e => {
     e.preventDefault();
 
-      axios.get(`${REACT_APP_SERVER_URL}/chores/new`, {input, user, taskDetail, group, rep})
+      axios.get(`${REACT_APP_SERVER_URL}/chores/new`, {input, theUser, taskDetail, group, rep})
         .then(newChore => {
           console.log(newChore)
         })

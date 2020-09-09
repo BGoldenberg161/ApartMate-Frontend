@@ -7,13 +7,13 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
 
 
 function TodoList(props) {
-  const test = props.user
+  const userInfo = props.user
 
   const [todos, setTodos] = useState([]);
   const [groupId, setGroupId] = useState(props.location.pathname)
-  const [userInfo, setUserInfo] = useState(props.user)
+  // const [userInfo, setUserInfo] = useState(props.user)
 
-  console.log(userInfo)
+  // console.log(userInfo)
 
 
   const addTodo = todo => {
@@ -64,7 +64,7 @@ function TodoList(props) {
   return (
     <>
       <h1>What's the Plan for Today?</h1>
-      <TodoForm onSubmit={addTodo} user={test}/>
+      <TodoForm onSubmit={addTodo} user={userInfo}/>
       <Todo
         todos={todos}
         completeTodo={completeTodo}
