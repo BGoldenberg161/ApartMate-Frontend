@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TodoForm from './TodoForm';
 import Todo from './Todo';
+import axios from 'axios'
 
-function TodoList() {
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
+
+
+function TodoList(props) {
+  const test = props.user
+
   const [todos, setTodos] = useState([]);
+  const [groupId, setGroupId] = useState(props.location.pathname)
+  const [userInfo, setUserInfo] = useState(props.user)
+
+  console.log(userInfo)
+
 
   const addTodo = todo => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
@@ -40,10 +51,20 @@ function TodoList() {
     setTodos(updatedTodos);
   };
 
+  /// get chores for group
+  useEffect((groupId) => {
+    axios.get(`${REACT_APP_SERVER_URL}${groupId}`)
+      .then(chores => {
+        console.log(chores)
+      })
+      .catch(err => console.log(`Get groups error:`, err))
+  }, [])
+
+
   return (
     <>
       <h1>What's the Plan for Today?</h1>
-      <TodoForm onSubmit={addTodo} />
+      <TodoForm onSubmit={addTodo} user={test}/>
       <Todo
         todos={todos}
         completeTodo={completeTodo}

@@ -107,7 +107,15 @@ function App() {
 					/>
 					{/* Need to add a CreateGroup route somehwere here...might also be a nav */}
 					<Route path='/about' component={About} />
-					<Route path='/chores' component={TodoList} user={currentUser} />
+					<Route path='/chores' 
+						render={props => (
+							<TodoList 
+							{...props}
+							nowCurrentUser={nowCurrentUser}
+							user={currentUser}
+							/>
+						)}
+					/> 
 					<Route path='/accept' component={Accept} />
 					<Route path='/groupurl' component={GroupUrl} />
 					<Route path='/details' component={Details} />

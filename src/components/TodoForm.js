@@ -1,7 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios'
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
+
 
 function TodoForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : '');
+  const [user, setUser] = useState(props.user)
+  const [taskDetail, setTaskDetail] = useState('No wammies, no wammies, no wammies')
+  const [group, setGroup] = useState(`5f555fdfc294e44af3aca930`)
+  const [rep, isRep] = useState(true)
+  console.log(props.user)
 
   const inputRef = useRef(null);
 
@@ -16,11 +24,18 @@ function TodoForm(props) {
   const handleSubmit = e => {
     e.preventDefault();
 
+      axios.get(`${REACT_APP_SERVER_URL}/chores/new`, {input, user, taskDetail, group, rep})
+        .then(newChore => {
+          console.log(newChore)
+        })
+        .catch(err => console.log(`Post chore error:`, err))
+
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
       text: input
     });
     setInput('');
+
   };
 
   return (

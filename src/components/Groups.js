@@ -80,13 +80,13 @@ const Groups = (props) => {
         })
         .catch(err => console.log(`Get groups error:`, err))
     }, [])
-
+    console.log(groupNames)
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
           {groupNames.map((g,i) => {
-              return <Link href={`/details/${g.id}`}> {g.name} </Link>
+              return <Link href={`/chores/${g._id}`} group={g}> {g.name} </Link> 
           })}
       </div>
         <Link href="/creategroup" variant="body2">

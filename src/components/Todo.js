@@ -5,7 +5,7 @@ import { TiEdit } from 'react-icons/ti';
 import '../assets/todo.css';
 
 
-const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
+const Todo = ({ todos, completeTodo, removeTodo, updateTodo, props }) => {
   const [edit, setEdit] = useState({
     id: null,
     value: ''
@@ -20,7 +20,7 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
   };
 
   if (edit.id) {
-    return <TodoForm edit={edit} onSubmit={submitUpdate} />;
+    return <TodoForm edit={edit} onSubmit={submitUpdate} user={props.user} />;
   }
 
   return todos.map((todo, index) => (
