@@ -9,7 +9,7 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
 function TodoList(props) {
 
   const [todos, setTodos] = useState([]);
-  const [groupId, setGroupId] = useState(props.location.pathname)
+  const groupId = props.location.pathname
 
 
   const addTodo = todo => {
@@ -48,10 +48,10 @@ function TodoList(props) {
   };
 
   /// get chores for group
-  useEffect((groupId) => {
+  useEffect(() => {
     axios.get(`${REACT_APP_SERVER_URL}${groupId}`)
       .then(chores => {
-        console.log(chores)
+        console.log(chores.data)
       })
       .catch(err => console.log(`Get groups error:`, err))
   }, [])

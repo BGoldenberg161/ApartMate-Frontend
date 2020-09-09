@@ -7,7 +7,7 @@ function TodoForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : '');
   const thisUser = props.user
   const [taskDetail, setTaskDetail] = useState('No wammies, no wammies, no wammies')
-  const [group, setGroup] = useState(`5f555fdfc294e44af3aca930`)
+  const [group, setGroup] = useState('5f555fdfc294e44af3aca930')
   const [rep, isRep] = useState(true)
 
   const inputRef = useRef(null);

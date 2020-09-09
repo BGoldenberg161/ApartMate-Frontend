@@ -30,7 +30,7 @@ const HomePage = () => {
 					<Typography variant='h5'>
 						Make living with your rommates alot simplier.
 					</Typography>
-					<Typography variant='p'>
+					<Typography variant='body1'>
 						Easy Venmo splits, automatic chore schedules and alot more!
 					</Typography>
 				</Grid>

@@ -86,7 +86,7 @@ const Groups = (props) => {
       <CssBaseline />
       <div className={classes.paper}>
           {groupNames.map((g,i) => {
-              return <Link href={`/chores/${g._id}`} group={g}> {g.name} </Link> 
+              return <Link key={i} href={`/chores/${g._id}`} group={g}> {g.name} </Link> 
           })}
       </div>
         <Link href="/creategroup" variant="body2">
