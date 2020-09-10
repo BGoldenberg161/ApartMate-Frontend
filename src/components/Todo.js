@@ -9,8 +9,8 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Favorite from '@material-ui/icons/Favorite';
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 
-const Todo = ({ todos, completeTodo, removeTodo, updateTodo, props }) => {
-	console.log('🍒', props);
+const Todo = ({ todos, completeTodo, removeTodo, updateTodo, user }) => {
+	console.log('🍒', user);
 	const [edit, setEdit] = useState({
 		id: null,
 		value: '',
@@ -28,7 +28,7 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo, props }) => {
 	};
 
 	if (edit.id) {
-		return <TodoForm edit={edit} onSubmit={submitUpdate} user={props.user} />;
+		return <TodoForm edit={edit} onSubmit={submitUpdate} user={user} />;
 	}
 
 	const handleClaim = (e, claim) => {
@@ -45,6 +45,8 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo, props }) => {
 				{todo.taskName}
 				<br></br>
 				{todo.taskDetail}
+				<br></br>
+			{checked ? user.name : ''}
 			</div>
 			<div className='icons'>
 				<FormControlLabel
