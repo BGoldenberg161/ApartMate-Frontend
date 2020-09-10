@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 function TodoForm(props) {
@@ -42,10 +42,11 @@ function TodoForm(props) {
 
 		props.onSubmit({
 			id: Math.floor(Math.random() * 10000),
-      taskName: input,
-      taskDetail: taskDetail
+			taskName: input,
+			taskDetail: taskDetail,
 		});
 		setInput('');
+		setTaskDetail('');
 	};
 
 	return (
@@ -66,10 +67,11 @@ function TodoForm(props) {
 				</>
 			) : (
 				<>
-				Add New User? <br />
-				<CopyToClipboard text={group} onCopy={{copied: true}}>
-				<button>Copy to clipboard</button>
-				</CopyToClipboard><br />
+					Add New User? <br />
+					<CopyToClipboard text={group} onCopy={{ copied: true }}>
+						<button>Copy to clipboard</button>
+					</CopyToClipboard>
+					<br />
 					<input
 						placeholder='Add a todo'
 						value={input}
@@ -86,7 +88,6 @@ function TodoForm(props) {
 						className='todo-input'
 						ref={inputRef}
 					/>
-
 					<button onClick={handleSubmit} className='todo-button'>
 						Add todo
 					</button>
