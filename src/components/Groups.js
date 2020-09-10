@@ -97,13 +97,14 @@ const Groups = (props) => {
       
     }
 
-
-    
-
   return (
+
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div className={classes.paper}>
+      <Typography variant="h2" id="groupTitle">
+        Welcome to your groups!
+      </Typography>
+      <div id="gNames" className={classes.paper}>
           {groupNames.map((g,i) => {
               return <Link key={i} href={`/chores/${g._id}`} group={g}> 
               <Typography variant="body1" className="groupNames">
