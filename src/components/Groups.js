@@ -2,7 +2,7 @@ import React, { useState, useEffect, BrowserRouter as Router } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Details from './Details';
-
+import NotFoundPage from './NotFoundPage';
 
 // importing material UI components___________________________________
 // import Avatar from '@material-ui/core/Avatar';
@@ -96,6 +96,8 @@ const Groups = (props) => {
     }
 
   return (
+
+    // if (error)
 
     <Container component="main" maxWidth="xs">
       <CssBaseline />
