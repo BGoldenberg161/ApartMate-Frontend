@@ -14,6 +14,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 
 // _______________________________________________________________________
@@ -72,6 +74,10 @@ const Groups = (props) => {
 
     const classes = useStyles();
 
+    // const handleSubmit = (e) => {
+    //   e.preventDefault()
+    //   console.log(groupName)
+
     useEffect((userId) => {
       axios.get(`${REACT_APP_SERVER_URL}/groups`, {userId})
         .then(groups => {
@@ -86,11 +92,48 @@ const Groups = (props) => {
       <CssBaseline />
       <div className={classes.paper}>
           {groupNames.map((g,i) => {
-              return <Link key={i} href={`/chores/${g._id}`} group={g}> {g.name} </Link> 
+              return <Link key={i} href={`/chores/${g._id}`} group={g}> 
+              <Typography variant="body1" className="groupNames">
+              {g.name} 
+              </Typography>
+              </Link> 
           })}
       </div>
         <Link href="/creategroup" variant="body2">
-          {"Create a new group!"}
+        <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            👫 Create a new group!
+          </Button>
+          <form className={classes.form}>
+          <TextField
+            label="Group Name"
+            type="groupName"
+            name="groupName"
+            value="{groupName}"
+            onChange="{handleGroupName}"
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            autoFocus
+            color="secondary"
+          />
+          {/* add a design to button  */}
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Add yourself in your group
+          </Button>
+        </form>
         </Link>
       <Box mt={4}>
         <Copyright />
