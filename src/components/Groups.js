@@ -17,6 +17,7 @@ import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
+import { render } from '@testing-library/react';
 
 // _______________________________________________________________________
 
@@ -69,8 +70,17 @@ const useStyles = makeStyles((theme) => ({
 const Groups = (props) => {
 
     const [groupNames, setGroupNames] = useState([])
+    const [groupId, setGroupId] = useState('')
+    // const [newGroup, setNewGroup] = useState(false)
+    const userId = props.user.id
 
     const classes = useStyles();
+
+    // const handleNewGroup = (newGroup) => {
+    //   if(newGroup) {
+    //     return <Redirect to="/groups" />
+    //   }
+    // }
     
     useEffect(() => {
       axios.get(`${REACT_APP_SERVER_URL}/groups?userId=${props.user.id}`)
@@ -84,12 +94,12 @@ const Groups = (props) => {
 
     const handleSubmit = (e) => {
       e.preventDefault()
-      console.log(e.target.value)
 
-      axios.post(`${REACT_APP_SERVER_URL}/add/${e.target.value}`)
+      axios.put(`${REACT_APP_SERVER_URL}/groups/add/${groupId}`, {userId})
         .then(response => {
           console.log(response)
-         
+          // setNewGroup(true)
+          // handleNewGroup()
         })
         .catch(err => console.log(`Error for adding Group ID`, err))
       
@@ -129,7 +139,7 @@ const Groups = (props) => {
             label="Invite Id"
             type="inviteId"
             name="inviteId"
-            // value="{groupName}"
+            onChange={e => {setGroupId(e.target.value)}}
             variant="outlined"
             margin="normal"
             required
