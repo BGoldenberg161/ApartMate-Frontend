@@ -74,10 +74,6 @@ const Groups = (props) => {
 
     const classes = useStyles();
 
-    // const handleSubmit = (e) => {
-    //   e.preventDefault()
-    //   console.log(groupName)
-
     useEffect((userId) => {
       axios.get(`${REACT_APP_SERVER_URL}/groups`, {userId})
         .then(groups => {
@@ -87,6 +83,23 @@ const Groups = (props) => {
         .catch(err => console.log(`Get groups error:`, err))
     }, [])
     console.log(groupNames)
+
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      console.log(e.target.value)
+
+      axios.post(`${REACT_APP_SERVER_URL}/add/${e.target.value}`)
+        .then(response => {
+          console.log(response)
+         
+        })
+        .catch(err => console.log(`Error for adding Group ID`, err))
+      
+    }
+
+
+    
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -109,21 +122,20 @@ const Groups = (props) => {
           >
             👫 Create a new group!
           </Button>
-          <form className={classes.form}>
+          </Link>
+          <form onSubmit={handleSubmit} className={classes.form}>
           <TextField
-            label="Group Name"
-            type="groupName"
-            name="groupName"
-            value="{groupName}"
-            onChange="{handleGroupName}"
+            label="Invite Id"
+            type="inviteId"
+            name="inviteId"
+            // value="{groupName}"
             variant="outlined"
             margin="normal"
             required
             fullWidth
-            autoFocus
             color="secondary"
           />
-          {/* add a design to button  */}
+
           <Button
             type="submit"
             fullWidth
@@ -131,10 +143,9 @@ const Groups = (props) => {
             color="primary"
             className={classes.submit}
           >
-            Add yourself in your group
+            Add yourself
           </Button>
         </form>
-        </Link>
       <Box mt={4}>
         <Copyright />
       </Box>
