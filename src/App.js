@@ -7,15 +7,13 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import HomePage from './components/HomePage';
 import About from './components/About';
-import NavBar from './components/Navbar';
 import BottomNav from './components/BottomNav';
-import Todo from './components/Todo';
-import './App.css';
 import CreateGroup from './components/CreateGroup';
 import GroupUrl from './components/GroupUrl';
 import Accept from './components/Accept';
 import Groups from './components/Groups';
-import Details from './components/Details'
+import Details from './components/Details';
+import './App.css';
 
 //testtingtesting
 
@@ -91,8 +89,7 @@ function App() {
 		<div>
 			<ThemeProvider theme={theme}>
 				<Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
-				<NavBar handleLogout={handleLogout} isAuth={isAuthenticated} />
-				<div className=''>
+				<div>
 					<Route path='/register' component={Register} />
 					<Route
 						path='/login'
@@ -107,34 +104,37 @@ function App() {
 					/>
 					{/* Need to add a CreateGroup route somehwere here...might also be a nav */}
 					<Route path='/about' component={About} />
-					<Route path='/chores' 
+					<Route
+						path='/chores'
 						render={props => (
-							<TodoList 
-							{...props}
-							nowCurrentUser={nowCurrentUser}
-							user={currentUser}
+							<TodoList
+								{...props}
+								nowCurrentUser={nowCurrentUser}
+								user={currentUser}
 							/>
 						)}
-					/> 
+					/>
 					<Route path='/accept' component={Accept} />
 					<Route path='/groupurl' component={GroupUrl} />
 					<Route path='/details' component={Details} />
 
-					<Route path='/groups'
+					<Route
+						path='/groups'
 						render={props => (
 							<Groups
-							{...props}
-							nowCurrentUser={nowCurrentUser}
-							user={currentUser}
+								{...props}
+								nowCurrentUser={nowCurrentUser}
+								user={currentUser}
 							/>
 						)}
 					/>
-					<Route path='/creategroup' 
+					<Route
+						path='/creategroup'
 						render={props => (
-							<CreateGroup 
-							{...props}
-							nowCurrentUser={nowCurrentUser}
-							user={currentUser}
+							<CreateGroup
+								{...props}
+								nowCurrentUser={nowCurrentUser}
+								user={currentUser}
 							/>
 						)}
 					/>
@@ -146,7 +146,7 @@ function App() {
 					{/* <PrivateRoute path="/chores" componenet={ Chores } user={currentUser} /> */}
 					<Route exact path='/' component={HomePage} />
 				</div>
-				<BottomNav />
+				<BottomNav handleLogout={handleLogout} isAuth={isAuthenticated} />
 			</ThemeProvider>
 		</div>
 	);
