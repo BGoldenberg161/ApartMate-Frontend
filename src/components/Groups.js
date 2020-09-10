@@ -1,14 +1,9 @@
 import React, { useState, useEffect, BrowserRouter as Router } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
-import Details from './Details';
-import NotFoundPage from './NotFoundPage';
+// import NotFoundPage from './NotFoundPage';
 
 // importing material UI components___________________________________
-// import Avatar from '@material-ui/core/Avatar';
-// import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
-// import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -16,8 +11,6 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
-import { render } from '@testing-library/react';
 
 // _______________________________________________________________________
 
@@ -71,16 +64,10 @@ const Groups = (props) => {
 
     const [groupNames, setGroupNames] = useState([])
     const [groupId, setGroupId] = useState('')
-    // const [newGroup, setNewGroup] = useState(false)
     const userId = props.user.id
 
     const classes = useStyles();
 
-    // const handleNewGroup = (newGroup) => {
-    //   if(newGroup) {
-    //     return <Redirect to="/groups" />
-    //   }
-    // }
     
     useEffect(() => {
       axios.get(`${REACT_APP_SERVER_URL}/groups?userId=${props.user.id}`)
@@ -98,16 +85,16 @@ const Groups = (props) => {
       axios.put(`${REACT_APP_SERVER_URL}/groups/add/${groupId}`, {userId})
         .then(response => {
           console.log(response)
-          // setNewGroup(true)
-          // handleNewGroup()
         })
         .catch(err => console.log(`Error for adding Group ID`, err))
       
     }
 
+    const refreshPage = () => {
+      window.location.reload(false);
+    }
+  
   return (
-
-    // if (error)
 
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -136,7 +123,7 @@ const Groups = (props) => {
           </Link>
           <form onSubmit={handleSubmit} className={classes.form}>
           <TextField
-            label="Invite Id"
+            label="Input Group Invitation here 🤗"
             type="inviteId"
             name="inviteId"
             onChange={e => {setGroupId(e.target.value)}}
@@ -152,9 +139,10 @@ const Groups = (props) => {
             fullWidth
             variant="contained"
             color="primary"
+            onClick={refreshPage}
             className={classes.submit}
           >
-            Add yourself
+            Submit
           </Button>
         </form>
       <Box mt={4}>
