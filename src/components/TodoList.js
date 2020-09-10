@@ -11,8 +11,7 @@ function TodoList(props) {
 
 	/// get chores for group
 	useEffect(() => {
-		axios
-			.get(`${REACT_APP_SERVER_URL}/chores/${groupId}`)
+		axios.get(`${REACT_APP_SERVER_URL}/chores/${groupId}`)
 			.then(chores => {
 				console.log(chores.data);
 				setTodos(chores.data);
@@ -70,6 +69,8 @@ function TodoList(props) {
 		<Todo
 			key={index}
 			todo={todo}
+			todos={todos}
+			setTodos={setTodos}
 			completeTodo={completeTodo}
 			removeTodo={removeTodo}
 			updateTodo={updateTodo}
