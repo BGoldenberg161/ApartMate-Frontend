@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, BrowserRouter,  Switch as Switch2 } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 import Register from './components/Register';
@@ -21,6 +21,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import blue from '@material-ui/core/colors/blue';
 import Switch from '@material-ui/core/Switch';
 import TodoList from './components/TodoList';
+import NotFoundPage from './components/NotFoundPage';
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
 	const user = localStorage.getItem('jwtToken');
@@ -90,6 +91,7 @@ function App() {
 			<ThemeProvider theme={theme}>
 				<Switch checked={darkMode} onChange={() => setDarkMode(!darkMode)} />
 				<div>
+					<Switch2>
 					<Route path='/register' component={Register} />
 					<Route
 						path='/login'
@@ -145,6 +147,8 @@ function App() {
 					/>
 					{/* <PrivateRoute path="/chores" componenet={ Chores } user={currentUser} /> */}
 					<Route exact path='/' component={HomePage} />
+					<Route path='*' component={NotFoundPage} />
+					</Switch2>
 				</div>
 				<BottomNav handleLogout={handleLogout} isAuth={isAuthenticated} />
 			</ThemeProvider>
