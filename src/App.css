@@ -86,7 +86,7 @@ body {
 }
 
 #welcome {
-	color: black;
+	color: mediumseagreen;
 	text-align: center;
 }
 
@@ -116,4 +116,9 @@ body {
 	height: 200px;
 	/* border: 3px solid green; */
 	margin-top: 15px;
+}
+
+#groups {
+	text-align: center;
+	color: #F95A2C;
 }
