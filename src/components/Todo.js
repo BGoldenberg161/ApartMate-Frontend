@@ -17,13 +17,17 @@ const Todo = ({ todo, completeTodo, removeTodo, user }) => {
 	const [claim, setClaim] = useState(false);
 	const [checked, setChecked] = useState(false);
 
+  const refreshPage = () => {
+    window.location.reload(false);
+  };
+
 	const handleClaim = (e, claim) => {
-		setChecked(e.target.checked);
-		console.log('this has been checked', { claim });
 		axios
 			.put(`${REACT_APP_SERVER_URL}/chores/claim/${todo._id}`, { user })
 			.then(response => {
-				console.log(response);
+				setChecked(e.target.checked);
+				console.log("this has been checked", { claim });
+
 			})
 			.catch(err => {
 				console.log('Error setting claim: ', err);
@@ -31,7 +35,7 @@ const Todo = ({ todo, completeTodo, removeTodo, user }) => {
 	};
 
 	return (
-		<div className={todo.isComplete ? 'todo-row complete' : 'todo-row'}>
+		<div className={todo.isDone ? 'todo-row complete' : 'todo-row'}>
 			<div key={todo._id} onClick={() => completeTodo(todo._id)}>
 				{todo.taskName}
 				<br></br>
@@ -44,6 +48,7 @@ const Todo = ({ todo, completeTodo, removeTodo, user }) => {
 					control={
 						<Checkbox
 							onChange={handleClaim}
+							onClick={refreshPage}
 							icon={<FavoriteBorder />}
 							checkedIcon={<Favorite />}
 							name='checkedH'

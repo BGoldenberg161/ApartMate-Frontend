@@ -18,7 +18,7 @@ function TodoList(props) {
 				setTodos(chores.data);
 			})
 			.catch(err => console.log(`Get groups error:`, err));
-	}, []);
+	}, [groupId]);
 	console.log(todos);
 
 	const addTodo = todo => {
@@ -47,11 +47,11 @@ function TodoList(props) {
 	};
 
 	const completeTodo = (id) => {
-		console.log('🇯🇲', todos);
+		console.log("This is todos" + todos)
 		let updatedTodos = todos.map(todo => {
 			if (todo._id === id) {
-				todo.isComplete = !todo.isComplete;
-				axios.post(`${REACT_APP_SERVER_URL}/${todo._id}/complete`)
+				todo.isDone = !todo.isDone;
+				axios.post(`${REACT_APP_SERVER_URL}/chores/${todo._id}/complete`)
 				.catch(err => {
 					console.log('Error with the axios.post completeTodo', err)
 				})
