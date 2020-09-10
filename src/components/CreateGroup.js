@@ -101,9 +101,8 @@ const CreateGroup = (props) => {
           <Avatar id="icon3" alt="Remy Sharp" src="https://blush.ly/WdB5j5nah/p" className={classes.large} /> 
           <Avatar id="icon4" alt="Remy Sharp" src="https://blush.ly/o0Z0Q4CgA/p" />
           <Avatar id="icon5" alt="Remy Sharp" src="https://blush.ly/gSkbM8vcD/p" />       
-          <Typography component="h1" variant="h3" className={classes.margin}>
+          <Typography component="h1" variant="h3" className={classes.margin} id="welcome">
            Welcome, <div className="username">{props.user.name}</div>
-          {/* missing center text here */}
           <br />
         </Typography>
         <form onSubmit={handleSubmit} className={classes.form}>
