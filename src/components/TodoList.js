@@ -9,18 +9,18 @@ function TodoList(props) {
 	const [todos, setTodos] = useState([]);
 	const groupId = props.location.pathname.slice(8);
 	console.log(groupId);
-  
-  /// get chores for group
-  useEffect(() => {
-    axios
-      .get(`${REACT_APP_SERVER_URL}/chores/${groupId}`)
-      .then(chores => {
-        console.log(chores.data);
-        setTodos(chores.data);
-      })
-      .catch(err => console.log(`Get groups error:`, err));
-  }, []);
-  console.log(todos);
+
+	/// get chores for group
+	useEffect(() => {
+		axios
+			.get(`${REACT_APP_SERVER_URL}/chores/${groupId}`)
+			.then(chores => {
+				console.log(chores.data);
+				setTodos(chores.data);
+			})
+			.catch(err => console.log(`Get groups error:`, err));
+	}, []);
+	console.log(todos);
 
 	const addTodo = todo => {
 		if (!todo.taskName || /^\s*$/.test(todo.taskName)) {
@@ -46,7 +46,7 @@ function TodoList(props) {
 
 		setTodos(removedArr);
 	};
-  
+
 	const completeTodo = id => {
 		let updatedTodos = todos.map(todo => {
 			if (todo.id === id) {
