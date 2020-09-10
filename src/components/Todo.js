@@ -57,7 +57,7 @@ const Todo = ({ todo, completeTodo, removeTodo, user }) => {
 					label='Claim this Chore'
 				/>
 				<RiDeleteBin5Line
-					onClick={() => removeTodo(todo.id)}
+					onClick={() => removeTodo(todo._id)}
 					className='delete-icon'
 				/>
 			</div>

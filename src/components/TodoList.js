@@ -41,9 +41,14 @@ function TodoList(props) {
 	};
 
 	const removeTodo = id => {
+		console.log(id)
 		const removedArr = [...todos].filter(todo => todo.id !== id);
-
 		setTodos(removedArr);
+		axios.delete(`${REACT_APP_SERVER_URL}/chores/${id}/delete`)
+		.catch(err => {
+			console.log("this did not delete! wtf?")
+		})
+		window.location.reload(false);
 	};
 
 	const completeTodo = (id) => {

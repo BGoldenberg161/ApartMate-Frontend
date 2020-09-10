@@ -144,6 +144,8 @@ function App() {
 						path='/profile'
 						component={Profile}
 						user={currentUser}
+						setUser={setCurrentUser}
+						nowCurrentUser={nowCurrentUser}
 					/>
 					{/* <PrivateRoute path="/chores" componenet={ Chores } user={currentUser} /> */}
 					<Route exact path='/' component={HomePage} />
