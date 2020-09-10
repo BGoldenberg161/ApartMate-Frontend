@@ -6,13 +6,13 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import RecentActorsOutlinedIcon from '@material-ui/icons/RecentActorsOutlined';
-import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
+import PeopleAltIcon from '@material-ui/icons/PeopleAlt';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
-import HowToRegOutlinedIcon from '@material-ui/icons/HowToRegOutlined';
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import VpnKeyOutlinedIcon from '@material-ui/icons/VpnKeyOutlined';
-import PostAddOutlinedIcon from '@material-ui/icons/PostAddOutlined';
+
+
 
 const useStyles = makeStyles({
 	root: {
@@ -50,7 +50,7 @@ const BottomNav = props => {
 							component={Link}
 							to='/groups'
 							label='Groups'
-							icon={<AddCircleOutlineOutlinedIcon />}
+							icon={<PeopleAltIcon />}
 						/>
 						<BottomNavigationAction
 							value='logout'
