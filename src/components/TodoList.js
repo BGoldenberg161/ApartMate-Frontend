@@ -55,19 +55,22 @@ function TodoList(props) {
 			return todo;
 		});
 		setTodos(updatedTodos);
-	};
+  };
+  
+  const todoComponents = todos.map((todo, index) => (
+    <Todo key={index}
+				todo={todo}
+				completeTodo={completeTodo}
+				removeTodo={removeTodo}
+				updateTodo={updateTodo}
+				user={props.user}
+			/>))
 
 	return (
 		<>
 			<h1>What's the Plan for Today?</h1>
 			<TodoForm onSubmit={addTodo} user={props.user} groupId={groupId} />
-			<Todo
-				todos={todos}
-				completeTodo={completeTodo}
-				removeTodo={removeTodo}
-				updateTodo={updateTodo}
-				user={props.user}
-			/>
+			{todoComponents}
 		</>
 	);
 }
