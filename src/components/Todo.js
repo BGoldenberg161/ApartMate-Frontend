@@ -32,7 +32,7 @@ const Todo = ({ todo, completeTodo, removeTodo, user }) => {
 
 	return (
 		<div className={todo.isComplete ? 'todo-row complete' : 'todo-row'}>
-			<div key={todo.id} onClick={() => completeTodo(todo.id)}>
+			<div key={todo._id} onClick={() => completeTodo(todo._id)}>
 				{todo.taskName}
 				<br></br>
 				{todo.taskDetail}

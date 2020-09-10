@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import TodoForm from './TodoForm';
 import Todo from './Todo';
 import axios from 'axios';
-
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 function TodoList(props) {
@@ -47,24 +46,31 @@ function TodoList(props) {
 		setTodos(removedArr);
 	};
 
-	const completeTodo = id => {
+	const completeTodo = (id) => {
+		console.log('🇯🇲', todos);
 		let updatedTodos = todos.map(todo => {
-			if (todo.id === id) {
+			if (todo._id === id) {
 				todo.isComplete = !todo.isComplete;
+				axios.post(`${REACT_APP_SERVER_URL}/${todo._id}/complete`)
+				.catch(err => {
+					console.log('Error with the axios.post completeTodo', err)
+				})
 			}
 			return todo;
 		});
 		setTodos(updatedTodos);
-  };
-  
-  const todoComponents = todos.map((todo, index) => (
-    <Todo key={index}
-				todo={todo}
-				completeTodo={completeTodo}
-				removeTodo={removeTodo}
-				updateTodo={updateTodo}
-				user={props.user}
-			/>))
+	};
+
+	const todoComponents = todos.map((todo, index) => (
+		<Todo
+			key={index}
+			todo={todo}
+			completeTodo={completeTodo}
+			removeTodo={removeTodo}
+			updateTodo={updateTodo}
+			user={props.user}
+		/>
+	));
 
 	return (
 		<>
