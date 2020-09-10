@@ -10,7 +10,7 @@ function TodoForm(props) {
 	const group = props.groupId;
 	const [rep, isRep] = useState(true);
 
-	const inputRef = useRef(null);
+	// const inputRef = useRef(null);
 
 	// useEffect(() => {
 	// 	inputRef.current.focus();
@@ -58,7 +58,7 @@ function TodoForm(props) {
 						value={input}
 						onChange={handleInput}
 						name='taskName'
-						ref={inputRef}
+						// ref={inputRef}
 						className='todo-input edit'
 					/>
 					<button onClick={handleSubmit} className='todo-button edit'>
@@ -78,7 +78,7 @@ function TodoForm(props) {
 						onChange={handleInput}
 						name='taskName'
 						className='todo-input'
-						ref={inputRef}
+						// ref={inputRef}
 					/>
 					<input
 						placeholder='Task Details'
@@ -86,7 +86,7 @@ function TodoForm(props) {
 						onChange={handleDetail}
 						name='taskDetail'
 						className='todo-input'
-						ref={inputRef}
+						// ref={inputRef}
 					/>
 					<button onClick={handleSubmit} className='todo-button'>
 						Add todo
