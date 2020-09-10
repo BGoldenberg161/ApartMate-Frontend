@@ -67,21 +67,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Groups = (props) => {
-    console.log(props.user)
 
-    const [userId, setuserId] = useState(props.user.id)
     const [groupNames, setGroupNames] = useState([])
 
     const classes = useStyles();
-
-    useEffect((userId) => {
-      axios.get(`${REACT_APP_SERVER_URL}/groups`, {userId})
-        .then(groups => {
-          console.log(groups.data)
-          setGroupNames(groups.data)
-        })
-        .catch(err => console.log(`Get groups error:`, err))
-    }, [])
+    
+    useEffect(() => {
+      axios.get(`${REACT_APP_SERVER_URL}/groups?userId=${props.user.id}`)
+      .then(groups => {
+        console.log(groups.data)
+        setGroupNames(groups.data)
+      })
+      .catch(err => console.log(`Get groups error:`, err))
+    }, [props.user.id])
     console.log(groupNames)
 
     const handleSubmit = (e) => {
