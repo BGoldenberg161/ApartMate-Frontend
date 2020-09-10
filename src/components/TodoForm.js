@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 function TodoForm(props) {
@@ -65,6 +66,10 @@ function TodoForm(props) {
 				</>
 			) : (
 				<>
+				Add New User? <br />
+				<CopyToClipboard text={group}>
+				<button>Copy to clipboard</button>
+				</CopyToClipboard><br />
 					<input
 						placeholder='Add a todo'
 						value={input}
