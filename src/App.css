@@ -82,6 +82,11 @@ body {
 
 .username {
 	text-align: center;
+	color: crimson;
+}
+
+#welcome {
+	color: black;
 }
 
 .MuiTypography-h3 {
