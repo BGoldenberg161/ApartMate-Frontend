@@ -67,7 +67,7 @@ function TodoForm(props) {
 			) : (
 				<>
 				Add New User? <br />
-				<CopyToClipboard text={group}>
+				<CopyToClipboard text={group} onCopy={{copied: true}}>
 				<button>Copy to clipboard</button>
 				</CopyToClipboard><br />
 					<input
