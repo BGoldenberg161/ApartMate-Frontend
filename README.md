@@ -218,8 +218,7 @@ Backend
 
 
 # Future implementations for ApartMate 😊
-
-
-
-
-
+Roadmap for the future:
+1. Building cleaner UI for the working components.
+2. Creating Invite Links
+3. Creating email newlsetter for the weekly assigned chores.
