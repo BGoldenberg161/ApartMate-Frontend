@@ -13,6 +13,7 @@ import GroupUrl from './components/GroupUrl';
 import Accept from './components/Accept';
 import Groups from './components/Groups';
 import Details from './components/Details';
+import Venmo from './components/Venmo';
 import './App.css';
 
 //testtingtesting
@@ -119,6 +120,7 @@ function App() {
 					<Route path='/accept' component={Accept} />
 					<Route path='/groupurl' component={GroupUrl} />
 					<Route path='/details' component={Details} />
+					<Route path='/venmo' component={Venmo} />
 
 					<Route
 						path='/groups'

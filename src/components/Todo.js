@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TodoForm from './TodoForm';
 import '../assets/todo.css';
 // Material UI Imports
@@ -11,11 +11,16 @@ import axios from 'axios';
 
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
-const Todo = ({ todo, completeTodo, removeTodo, user }) => {
-	console.log('🍒', user);
+const Todo = (props) => {
+	console.log('🍒', props.user);
 
 	const [claim, setClaim] = useState(false);
 	const [checked, setChecked] = useState(false);
+
+  console.log('🚴', props.todos)
+  useEffect(()=>{
+    props.setTodos(props.todos)
+  }, []) 
 
   const refreshPage = () => {
     window.location.reload(false);
@@ -23,7 +28,7 @@ const Todo = ({ todo, completeTodo, removeTodo, user }) => {
 
 	const handleClaim = (e, claim) => {
 		axios
-			.put(`${REACT_APP_SERVER_URL}/chores/claim/${todo._id}`, { user })
+			.put(`${REACT_APP_SERVER_URL}/chores/claim/${props.todo._id}`, { user: props.user })
 			.then(response => {
 				setChecked(e.target.checked);
 				console.log("this has been checked", { claim });
@@ -35,13 +40,13 @@ const Todo = ({ todo, completeTodo, removeTodo, user }) => {
 	};
 
 	return (
-		<div className={todo.isDone ? 'todo-row complete' : 'todo-row'}>
-			<div key={todo._id} onClick={() => completeTodo(todo._id)}>
-				{todo.taskName}
+		<div className={props.todo.isDone ? 'todo-row complete' : 'todo-row'}>
+			<div key={props.todo._id} onClick={() => props.completeTodo(props.todo._id)}>
+				{props.todo.taskName}
 				<br></br>
-				{todo.taskDetail}
+				{props.todo.taskDetail}
 				<br></br>
-				{todo.claimName}
+				{props.todo.claimName}
 			</div>
 			<div className='icons'>
 				<FormControlLabel
@@ -57,7 +62,7 @@ const Todo = ({ todo, completeTodo, removeTodo, user }) => {
 					label='Claim this Chore'
 				/>
 				<RiDeleteBin5Line
-					onClick={() => removeTodo(todo._id)}
+					onClick={() => props.removeTodo(props.todo._id)}
 					className='delete-icon'
 				/>
 			</div>

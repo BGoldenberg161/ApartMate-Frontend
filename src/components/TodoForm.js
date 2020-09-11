@@ -27,16 +27,12 @@ function TodoForm(props) {
 	const handleSubmit = e => {
 		e.preventDefault();
 
-		axios
-			.post(`${REACT_APP_SERVER_URL}/chores/new`, {
+		axios.post(`${REACT_APP_SERVER_URL}/chores/new`, {
 				input,
 				thisUser,
 				taskDetail,
 				group,
 				rep,
-			})
-			.then(newChore => {
-				console.log(newChore);
 			})
 			.catch(err => console.log(`Post chore error:`, err));
 

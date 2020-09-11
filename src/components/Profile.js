@@ -1,8 +1,9 @@
-import React, {useState, Link} from 'react'
+import React, { useState } from 'react'
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 
@@ -72,13 +73,18 @@ const Profile = (props) => {
             onChange={setUpVenmo}
             value={venmoHandle}
             id="outlined-basic"
-            label="Outlined"
+            label="you new venmo name"
             variant="outlined"
           />
           <Button type="submit" className={classes.submit}>
             Submit
           </Button>
         </form>
+        <div>
+        <Link to="/venmo" variant="body2">
+                Take me to my venmo
+        </Link>
+        </div>
       </div>
     );
 }
