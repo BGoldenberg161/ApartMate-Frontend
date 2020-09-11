@@ -100,6 +100,8 @@ Backend
 * node-schedule
 * passport
 * passport-jwt
+* twilio
+* node-schedule
 
 ## Features
 * MERN Auth
@@ -202,7 +204,9 @@ Backend
 
 1. One of the big hurdles we had throughtout the project was passing our user id information throughout the pages. Whenever we wanted to access this information, we always ended up getting ```undefined``` in our console.log. 
 
-2. Figuring out how to get our page to reload new chores that were being added by the user and a new group that the user created onto the page at that moment. At first, we noticed we had to refresh the page in order to get the new group to appear on the groups component. The same went for out chores page, when we someone clicked on a chore they wanted to do, the part that says ```unclaim``` didn't change with the user name showing up until you refreshed your page. One way we went about it, although we didn't want to implement but helped during the time was, ``` function refreshPage() { window.location.reload(false) } ``` and our button had ```<button onClick={refreshPage}>Click to reload!</button> ```.
+2. Figuring out how to get our page to reload new chores that were being added by the user and a new group that the user created onto the page at that moment. At first, we noticed we had to refresh the page in order to get the new group to appear on the groups component. The same went for out chores page, when we someone clicked on a chore they wanted to do, the part that says ```unclaim``` didn't change with the user name showing up until you refreshed your page. One way we went about it, although we didn't want to implement but helped during the time was, ``` function refreshPage() { window.location.reload(false) } ``` and our button had ```<button onClick={refreshPage}>Click to reload!</button> ```. Knowing that a React App shouldn't need to be doing hard page resets to function properly, once we met MVP, this issue was revisited. State can be enough to trigger a component to reload, to utilize this we put our axios calls in seperate functions and called those functions in a useEffect hook that is triggered when the state of the page is changed. Yay! no more page resets!  
+
+3. Sending data through to the backend for our get routes had a learning curve of its own. We wanted to use ```req.body.``` to access some user information while going get calls but it kept coming back undefined! We found and used two solutions to this problem. First, if you just use a post route instead of a get, the data can be passed through as we desired. The second option that was utilized was to simply pass the data as a query or a param. 
 
 
 # Future implementations for ApartMate 😊
