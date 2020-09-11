@@ -85,12 +85,41 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 | Date | Date | Auto-generated | 
 
 # Routes
+
+## User Routes
+
 | Method | Path | Purpose |
 | ---- | ------ | -------------------------- |
 | POST | /register | user signs up for an account |
 | POST | /login | user is able to log in once account is created |
 | POST | /addVenmo | user is able to create their Venmo |
 | GET | /current | we are able to see who is the current user |
+
+## Group routes
+
+| Method | Path | Purpose |
+| ---- | ------ | -------------------------- |
+| GET | / | route to see all groups for a user  |
+| GET | /:groupid | displays all users belonging to the group |
+| POST | /create | create a group |
+| PUT | /add/:groupid | adds a user to an existing group |
+
+## Chore
+
+| Method | Path | Purpose |
+| ---- | ------ | -------------------------- |
+| GET | /:groupid | displays all the chores for your group |
+| POST | /new | creates a new chore |
+| POST | /:id/complete | marks a chore complete and incomplete |
+| PUT  | /claim/:id | claims a chore |
+| GET | / | gets all chores associated to userid |
+| DELETE | /:id/delete | deletes a chore |
+
+## Venmo
+
+| Method | Path | Purpose |
+| ---- | ------ | -------------------------- |
+| POST | /create | creates a venmo |
 
 # Future implementations for ApartMate 😊
 
