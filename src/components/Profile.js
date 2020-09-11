@@ -80,11 +80,6 @@ const Profile = (props) => {
             Submit
           </Button>
         </form>
-        <div>
-        <Link to="/venmo" variant="body2">
-                Take me to my venmo
-        </Link>
-        </div>
       </div>
     );
 }

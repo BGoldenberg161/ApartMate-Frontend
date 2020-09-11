@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button';
 
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
-const Venmo = () => {
+const Venmo = (props) => {
 	const useStyles = makeStyles(theme => ({
 		root: {
 			display: 'flex',
@@ -28,6 +28,8 @@ const Venmo = () => {
 		},
 	}));
 
+
+	const groupId = props.location.pathname.slice(7);
 	const classes = useStyles();
 	const [values, setValues] = useState({
 		amount: '',
@@ -36,10 +38,9 @@ const Venmo = () => {
 	const handleChange = prop => event => {
 		setValues({ ...values, [prop]: event.target.value });
 	};
-
-	const createRequest = props => {
-		axios
-			.post(`${REACT_APP_SERVER_URL}/venmo/create`, { props })
+	
+	const createRequest = () => {
+		axios.post(`${REACT_APP_SERVER_URL}/venmo/create`, { props, values, groupId })
 			.then(response => {
 				console.log(response);
 			})

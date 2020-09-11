@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom'
 import TodoForm from './TodoForm';
 import Todo from './Todo';
 import axios from 'axios';
@@ -7,18 +8,22 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 function TodoList(props) {
 	const [todos, setTodos] = useState([]);
 	const groupId = props.location.pathname.slice(8);
-	console.log(groupId);
+
+	const getChores = () => {
+		axios.get(`${REACT_APP_SERVER_URL}/chores/${groupId}`)
+		.then(chores => {
+			// console.log(chores.data);
+			setTodos(chores.data);
+		})
+		.catch(err => console.log(`Get groups error:`, err));
+	}
 
 	/// get chores for group
 	useEffect(() => {
-		axios.get(`${REACT_APP_SERVER_URL}/chores/${groupId}`)
-			.then(chores => {
-				console.log(chores.data);
-				setTodos(chores.data);
-			})
-			.catch(err => console.log(`Get groups error:`, err));
-	}, [groupId]);
-	console.log(todos);
+		getChores()
+	}, [todos]);
+
+	// console.log(todos);
 
 	const addTodo = todo => {
 		if (!todo.taskName || /^\s*$/.test(todo.taskName)) {
@@ -47,7 +52,6 @@ function TodoList(props) {
 		.catch(err => {
 			console.log("this did not delete! wtf?")
 		})
-		window.location.reload(false);
 	};
 
 	const completeTodo = (id) => {
@@ -83,6 +87,9 @@ function TodoList(props) {
 			<h1>What's the Plan for Today?</h1>
 			<TodoForm onSubmit={addTodo} user={props.user} groupId={groupId} />
 			{todoComponents}
+			<Link to={`/venmo/${groupId}`} variant="body2">
+                Take me to my venmo
+        	</Link>
 		</>
 	);
 }

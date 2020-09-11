@@ -120,8 +120,15 @@ function App() {
 					<Route path='/accept' component={Accept} />
 					<Route path='/groupurl' component={GroupUrl} />
 					<Route path='/details' component={Details} />
-					<Route path='/venmo' component={Venmo} />
-
+					<Route path='/venmo' render={props => (
+						<Venmo 
+							{...props}
+							nowCurrentUser={nowCurrentUser}
+							user={currentUser}
+							setUser={setCurrentUser}
+						/>
+					)} 
+					/>
 					<Route
 						path='/groups'
 						render={props => (

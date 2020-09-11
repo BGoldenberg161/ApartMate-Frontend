@@ -13,17 +13,13 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 const Todo = (props) => {
 	console.log('🍒', props.user);
 
-	const [claim, setClaim] = useState(false);
 	const [checked, setChecked] = useState(false);
 
   console.log('🚴', props.todos)
   useEffect(()=>{
     props.setTodos(props.todos)
-  }, []) 
+  }, [checked]) 
 
-  const refreshPage = () => {
-    window.location.reload(false);
-  };
 
 	const handleClaim = (e, claim) => {
 		axios
@@ -52,7 +48,7 @@ const Todo = (props) => {
 					control={
 						<Checkbox
 							onChange={handleClaim}
-							onClick={refreshPage}
+							// onClick={refreshPage}
 							icon={<FavoriteBorder />}
 							checkedIcon={<Favorite />}
 							name='checkedH'

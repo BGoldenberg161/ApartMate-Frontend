@@ -69,17 +69,18 @@ const Groups = (props) => {
 
     const classes = useStyles();
 
-    
-    useEffect(() => {
+    const getGroups = () => {
       axios.get(`${REACT_APP_SERVER_URL}/groups?userId=${props.user.id}`)
       .then(groups => {
-        console.log(groups.data)
         setGroupNames(groups.data)
         setNoGroups(false)
       })
       .catch(err => console.log(`Get groups error:`, err))
-    }, [props.user.id])
-    console.log(groupNames)
+    }
+
+    useEffect(() => {
+      getGroups()
+    }, [groupNames])
 
     const handleSubmit = (e) => {
       e.preventDefault()
@@ -92,9 +93,6 @@ const Groups = (props) => {
       
     }
 
-    const refreshPage = () => {
-      window.location.reload(false);
-    }
     
   return (
     <Container component="main" maxWidth="xs">
@@ -141,7 +139,7 @@ const Groups = (props) => {
             fullWidth
             variant="contained"
             color="primary"
-            onClick={refreshPage}
+            // onClick={refreshPage}
             className={classes.submit}
           >
             Submit
