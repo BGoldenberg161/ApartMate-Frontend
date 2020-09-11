@@ -19,6 +19,8 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 
 <img src="src/assets/images/wireframe.png">
 
+# Code information and technology uses goes down here ? 
+
 ## Technology We Used
 
 - Mongoose
@@ -89,5 +91,9 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 | POST | /login | user is able to log in once account is created |
 | POST | /addVenmo | user is able to create their Venmo |
 | GET | /current | we are able to see who is the current user |
+
+# Future implementations for ApartMate 😊
+
+
 
 
