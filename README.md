@@ -10,5 +10,5 @@ In order to run the backend repo, you need to input ```nodemon``` in the backend
 # About Our Project 
 
 We started out with a basic idea of how we wanted Apartmate to look like and like any ideas, we knew it would change as we went on but wanted to stick to the original wireframe.
-![Image of our Wireframe]
+
 <img src="src/assets/images/wireframe.png">
