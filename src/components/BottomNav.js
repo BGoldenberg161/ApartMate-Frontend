@@ -11,14 +11,13 @@ import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined'
 import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import VpnKeyOutlinedIcon from '@material-ui/icons/VpnKeyOutlined';
-import MonetizationOnOutlinedIcon from '@material-ui/icons/MonetizationOnOutlined';
 
 const useStyles = makeStyles({
 	root: {
 		width: '100%',
 		position: 'fixed',
-		bottom: 0,
-	},
+		bottom: 0
+	}
 });
 
 const BottomNav = props => {
@@ -50,13 +49,6 @@ const BottomNav = props => {
 							to='/groups'
 							label='Groups'
 							icon={<PeopleAltIcon />}
-						/>
-						<BottomNavigationAction
-							value='venmo'
-							component={Link}
-							to='/venmo'
-							label='Venmo'
-							icon={<MonetizationOnOutlinedIcon />}
 						/>
 						<BottomNavigationAction
 							value='logout'

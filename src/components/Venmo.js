@@ -38,7 +38,7 @@ const Venmo = (props) => {
 	const handleChange = prop => event => {
 		setValues({ ...values, [prop]: event.target.value });
 	};
-	
+	console.log(props)
 	const createRequest = () => {
 		axios.post(`${REACT_APP_SERVER_URL}/venmo/create`, { props, values, groupId })
 			.then(response => {
