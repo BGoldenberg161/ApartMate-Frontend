@@ -34,7 +34,6 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 
 ## User Model
 
-
 | Column Name | Data Type | Purpose |
 | ---- | ------ | -------------------------- |
 | Name | String | This has to be provided upon signing up & log in |
@@ -44,4 +43,41 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 | Venmo | String | Default |
 | Group Id |  |  |
 | Completed Chore | String | |
-| Date | Date | records the current's date |
+| Date | Date | Provided current date it was created |
+
+## Group Model
+
+| Column Name | Data Type | Purpose |
+| ---- | ------ | -------------------------- |
+| Users | String | This has to be provided upon signing up & log in |
+| Name | String | Must be provided |
+| Pin | Integer | Must be provided | 
+| Date | Date | Provided current date it was created |
+
+## Venmo Model 
+
+| Column Name | Data Type | Purpose |
+| ---- | ------ | -------------------------- |
+| Primary Venmo | String | Must be provided |
+| Item | String | Default |
+| Input Price | Float |  | 
+| Users | |  |
+| Group Id | | |
+|Split Price | | |
+|Date | Date |  Provides when Venmo was created |
+
+## Chore Model 
+
+| Column Name | Data Type | Purpose |
+| ---- | ------ | -------------------------- |
+| Task Name | String | Must be provided |
+| Task Detail | String | Must be provided |
+| User Id | String | Must be provided | 
+| Group Id | String | Provided current date it was created |
+| Complete Date | Date | |
+| Is Done | Boolean | |
+| Claim | String | |
+| Claim Name | String | |
+| Is Repeating | Boolean | |
+| Never Done | Boolean | |
+| Date | Date | Provides when the task was created | 
