@@ -3,11 +3,36 @@ import {Link} from 'react-router-dom'
 import TodoForm from './TodoForm';
 import Todo from './Todo';
 import axios from 'axios';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
+import { makeStyles } from '@material-ui/core/styles';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
+
+const useStyles = makeStyles((theme) => ({
+    paper: {
+      marginTop: theme.spacing(0),
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: theme.palette.success.main,
+    },
+    form: {
+      width: '100%', // Fix IE 11 issue.
+      marginTop: theme.spacing(0),
+      borderRadius: 4
+    },
+    submit: {
+      margin: theme.spacing(3, 0, 2),
+    },
+  }));
 
 function TodoList(props) {
 	const [todos, setTodos] = useState([]);
-	const groupId = props.location.pathname.slice(8);
+    const groupId = props.location.pathname.slice(8);
+    const classes = useStyles();
 
 	const getChores = () => {
 		axios.get(`${REACT_APP_SERVER_URL}/chores/${groupId}`)
@@ -84,12 +109,17 @@ function TodoList(props) {
 
 	return (
 		<>
-			<h1>What's the Plan for Today?</h1>
 			<TodoForm onSubmit={addTodo} user={props.user} groupId={groupId} />
 			{todoComponents}
+
+            <Container component="main" maxWidth="xs">
+            <CssBaseline />
+            <div className={classes.paper}>
 			<Link to={`/venmo/${groupId}`} variant="body2">
                 Take me to my venmo
         	</Link>
+            </div>
+            </Container>
 		</>
 	);
 }
