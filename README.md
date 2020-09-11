@@ -19,7 +19,7 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 
 <img src="src/assets/images/wireframe.png">
 
-## Technology we used
+## Technology We Used
 
 - Mongoose
 - MongoDB 
@@ -33,3 +33,15 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 # Models
 
 ## User Model
+
+
+| Column Name | Data Type | Purpose |
+| ---- | ------ | -------------------------- |
+| Name | String | This has to be provided upon signing up & log in |
+| Email | String | This must be provided upon signing up & to log in |
+| Password | String | Must be provided | 
+| Phone | String | Must be provided for us of Venmo |
+| Venmo | String | Default |
+| Group Id |  |  |
+| Completed Chore | String | |
+| Date | Date | records the current's date |
