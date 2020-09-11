@@ -1,4 +1,12 @@
 # Welcome to Apartmate!
+Apartmate was built to solve the awkward roommate problems we all run into. Nobody wants to be a "Karen" and lecture their roommates about doing basic chores or splitting simple payments. That's why we built Apartmate.
+The basic functions of Apartmate:
+1: Create a group with you & your roommates.
+2: Add any chores you & your roommates want done on a week to week basis.
+3: Every Sunday at 6PM your chores will be randomly assigned to a different team member.
+4: Easily split Venmo payments by inputting the amount & your roomates will get a text with the exact Venmo amount they need to pay you.
+
+
 
 ## Getting Started
 
