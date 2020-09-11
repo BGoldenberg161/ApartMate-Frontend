@@ -11,4 +11,5 @@ In order to run the backend repo, you need to input ```nodemon``` in the backend
 
 We started out with a basic idea of how we wanted Apartmate to look like and like any ideas, we knew it would change as we went on but wanted to stick to the original wireframe.
 
-(https://www.figma.com/file/3Q7fc2IdFk7srVxZ5cPFrd/apartmate?node-id=2%3A9128)
+![Image of our Wireframe]
+(https://https://github.com/alpha-martinez/ApartMate-Frontend/images/wireframe.png)
