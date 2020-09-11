@@ -21,50 +21,50 @@ body {
 
 #icon {
 	width: 79px;
-    height: 79px;
+	height: 79px;
 	/* Colors / Pink */
-	background: #FF89BB;
+	background: #ff89bb;
 	/* Colors / Black */
 	right: 80px;
-    top: 135px;
-    width: 79px;
-    height: 79px;
-    background: #FF89BB;
-    border: 2px solid #18191F;
-    box-sizing: border-box;
-    border-radius: 166px;
+	top: 135px;
+	width: 79px;
+	height: 79px;
+	background: #ff89bb;
+	border: 2px solid #18191f;
+	box-sizing: border-box;
+	border-radius: 166px;
 }
 
-#icon2{
+#icon2 {
 	width: 79px;
-    height: 79px;
-    left: 80px;
-    top: 53px;
-    background: #F95A2C;
-    border: 2px solid #18191F;
-    box-sizing: border-box;
-    border-radius: 166px;
+	height: 79px;
+	left: 80px;
+	top: 53px;
+	background: #f95a2c;
+	border: 2px solid #18191f;
+	box-sizing: border-box;
+	border-radius: 166px;
 }
 
 #icon3 {
 	width: 79px;
-    height: 79px;
-	background: #00C6AE;
-    border: 2px solid #18191F;
-    box-sizing: border-box;
-    border-radius: 166px;
-    margin: auto;
+	height: 79px;
+	background: #00c6ae;
+	border: 2px solid #18191f;
+	box-sizing: border-box;
+	border-radius: 166px;
+	margin: auto;
 }
 
 #icon4 {
 	width: 79px;
-    height: 79px;
+	height: 79px;
 	right: 60px;
 	top: -20px;
-    background: #FFBD12;
-    border: 2px solid #18191F;
-    box-sizing: border-box;
-    border-radius: 166px;
+	background: #ffbd12;
+	border: 2px solid #18191f;
+	box-sizing: border-box;
+	border-radius: 166px;
 }
 
 #icon5 {
@@ -73,9 +73,9 @@ body {
 	left: 60px;
 	top: -100px;
 	/* Contra / Blue */
-	background: #1947E6;
+	background: #1947e6;
 	/* Colors / Black */
-	border: 2px solid #18191F;
+	border: 2px solid #18191f;
 	box-sizing: border-box;
 	border-radius: 166px;
 }
@@ -91,12 +91,12 @@ body {
 }
 
 .MuiTypography-h3 {
-    font-size: 3rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-weight: 400;
-    line-height: 1.167;
-    letter-spacing: 0em;
-    margin-top: -80px;
+	font-size: 3rem;
+	font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+	font-weight: 400;
+	line-height: 1.167;
+	letter-spacing: 0em;
+	margin-top: -80px;
 }
 
 #check {
@@ -120,9 +120,10 @@ body {
 
 #groups {
 	text-align: center;
-	color: #F95A2C;
+	color: #f95a2c;
 }
 
 #invite {
 	text-align: center;
 }
+

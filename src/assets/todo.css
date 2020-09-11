@@ -19,11 +19,11 @@
 	padding-bottom: 32px;
 }
 
-h1 {
+/* h1 {
 	margin: 32px 0;
-	color: #fff;
+	color: #000;
 	font-size: 24px;
-}
+} */
 
 .complete {
 	text-decoration: line-through;
