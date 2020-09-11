@@ -41,9 +41,9 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 | Password | String | Must be provided | 
 | Phone | String | Must be provided for us of Venmo |
 | Venmo | String | Default |
-| Group Id |  |  |
-| Completed Chore | String | |
-| Date | Date | Provided current date it was created |
+| Group Id | Auto-generated |  ObjectId |
+| Completed Chore | String | ObjectId |
+| Date | Date | Auto-generated |
 
 ## Group Model
 
@@ -52,7 +52,7 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 | Users | String | This has to be provided upon signing up & log in |
 | Name | String | Must be provided |
 | Pin | Integer | Must be provided | 
-| Date | Date | Provided current date it was created |
+| Date | Date | Auto-generated |
 
 ## Venmo Model 
 
@@ -60,11 +60,11 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 | ---- | ------ | -------------------------- |
 | Primary Venmo | String | Must be provided |
 | Item | String | Default |
-| Input Price | Float |  | 
-| Users | |  |
-| Group Id | | |
-|Split Price | | |
-|Date | Date |  Provides when Venmo was created |
+| Input Price | Float | user will create this later | 
+| Users | String | ObjectId |
+| Group Id | | Auto-generated |
+|Split Price | Float | user will create this later |
+|Date | Date |  Auto-generated |
 
 ## Chore Model 
 
@@ -74,10 +74,10 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 | Task Detail | String | Must be provided |
 | User Id | String | Must be provided | 
 | Group Id | String | Provided current date it was created |
-| Complete Date | Date | |
-| Is Done | Boolean | |
-| Claim | String | |
-| Claim Name | String | |
+| Complete Date | Date | Will provide when user completed task when clicked |
+| Is Done | Boolean | will be changed later on when clicked done |
+| Claim | String | will change later on when user claims a task |
+| Claim Name | String | will change when user claims tasks |
 | Is Repeating | Boolean | |
 | Never Done | Boolean | |
-| Date | Date | Provides when the task was created | 
+| Date | Date | Auto-generated | 
