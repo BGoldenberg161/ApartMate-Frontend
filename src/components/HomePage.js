@@ -80,42 +80,28 @@ const HomePage = () => {
 							swipeable // will make swipeable for mobile
 							autoPlay
 							infiniteLoop
-							width='200px'
+							width='500px'
 						>
 							<div>
 								<img
 									alt=''
-									src='https://media-exp1.licdn.com/dms/image/C5603AQEpQ6X5uER9gQ/profile-displayphoto-shrink_200_200/0?e=1605139200&v=beta&t=XQvItOF6hI2YK6ORpkW1mbgxVlo9ICt5S1m7NJNBkdM'
+									src='/https://www.triplemint.com/blog/wp-content/uploads/2018/01/Happy-roommates-feature-pixabay.com_-759x500.jpg'
 								/>
-								<p className='legend'>Branden Goldenberg</p>
+								<p className='legend'>apartMate roommates</p>
 							</div>
 							<div>
 								<img
 									alt=''
-									src='https://media-exp1.licdn.com/dms/image/C4E03AQFKfax6D4T9-A/profile-displayphoto-shrink_200_200/0?e=1605139200&v=beta&t=4W6r5Q5DaRDj5bmY0MunpKCLHGBlKAxLtoGVjIfjdk4'
+									src='https://cdn.crediful.com/app/uploads/2019/12/venmo.jpg'
 								/>
-								<p className='legend'>Cristina Nguyen</p>
+								<p className='legend'>Easy Venmo Splits!</p>
 							</div>
 							<div>
 								<img
 									alt=''
-									src='https://media-exp1.licdn.com/dms/image/C5603AQFfyoX1lTLNgA/profile-displayphoto-shrink_200_200/0?e=1605139200&v=beta&t=ljLB3gNOrXm0vjcGAvPKLY_zMjKT9STXRHHg-DE1uNo'
+									src='https://i5.walmartimages.com/asr/7278a7ff-0745-4d10-8bf5-92732d9671ce_1.b44207fefb4058f747fd297abdd63d70.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff'
 								/>
-								<p className='legend'>Rohun Vora</p>
-							</div>
-							<div>
-								<img
-									alt=''
-									src='https://media-exp1.licdn.com/dms/image/C4D03AQEQqyWlyTzpaQ/profile-displayphoto-shrink_200_200/0?e=1605139200&v=beta&t=JVr7AnIYvgcAWgzdZVpLXktJoEtwON7zjy2v3o05FR4'
-								/>
-								<p className='legend'>Alpha Martinez</p>
-							</div>
-							<div>
-								<img
-									alt=''
-									src='https://media1.tenor.com/images/1cca9d587b8f2cf22116036b2523ed53/tenor.gif'
-								/>
-								<p className='legend'>Yoel Morad</p>
+								<p className='legend'>No more Chore Lists!</p>
 							</div>
 						</Carousel>
 						<Copyright />
