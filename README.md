@@ -83,9 +83,8 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 | Date | Date | Auto-generated | 
 
 # Routes
-
 | Method | Path | Purpose |
-| ------ | ----- | ------ |
+| ---- | ------ | -------------------------- |
 | POST | /register | user signs up for an account |
 | POST | /login | user is able to log in once account is created |
 | POST | /addVenmo | user is able to create their Venmo |
