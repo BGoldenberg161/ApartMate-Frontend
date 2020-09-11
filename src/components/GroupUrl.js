@@ -18,12 +18,10 @@ import Container from '@material-ui/core/Container';
 
 // _______________________________________________________________________
 
-const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
-
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'apartmate © '}
+      {'apartMate © '}
       {' '}
       {new Date().getFullYear()}
       {'.'}

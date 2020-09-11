@@ -1,20 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import PageNotFound from '../assets/images/PageNotFound.jpg';
+import broken from '../assets/images/PageNotFound.jpg';
+import '../assets/brokenpage.css';
 
 class NotFoundPage extends React.Component {
 	render() {
 		return (
-			<div>
-				<img src={PageNotFound} />
-				<h1 style={{ zIndex: 1 }}>404</h1>
-				<p style={{ textAlign: 'center' }}>
-					not all who wander are lost, except you
+			<>
+				<h1 class='title'>Aww... Don't cry..</h1>
+				<p class='zoom-area'>
+					<b>not</b> all who wander are lost.{' '}
 				</p>
-				<p style={{ textAlign: 'center' }}>
-					<Link to='/'>Go to Home </Link>
+				<section class='error-container'>
+					<span>4</span>
+					<span>
+						<span class='screen-reader-text'>0</span>
+					</span>
+					<span>4</span>
+				</section>
+				<p class='zoom-area'>
+					<b>..except you..</b>
 				</p>
-			</div>
+				<div class='link-container'>
+					<a
+						target='_blank'
+						href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+						class='more-link'
+					>
+						We got your back [click here]
+					</a>
+				</div>
+			</>
 		);
 	}
 }
