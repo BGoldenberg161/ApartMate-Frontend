@@ -46,8 +46,7 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
-const Accept = props => {
-	const [groupName, setGroupName] = useState('');
+const Accept = () => {
 
 	const classes = useStyles();
 

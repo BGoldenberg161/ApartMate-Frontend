@@ -49,7 +49,6 @@ const Profile = (props) => {
         e.preventDefault()
         axios.post(`${REACT_APP_SERVER_URL}/api/users/addVenmo`, {userId: props.user.id, venmoHandle})
         .then(response => {
-            console.log(response.data)
             props.setUser(response.data)
         })
         .catch(err => {
