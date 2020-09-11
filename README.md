@@ -86,7 +86,7 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 
 # Routes
 
-## User Routes
+## User 
 
 | Method | Path | Purpose |
 | ---- | ------ | -------------------------- |
@@ -95,7 +95,7 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 | POST | /addVenmo | user is able to create their Venmo |
 | GET | /current | we are able to see who is the current user |
 
-## Group routes
+## Group 
 
 | Method | Path | Purpose |
 | ---- | ------ | -------------------------- |
