@@ -19,18 +19,95 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 
 <img src="src/assets/images/wireframe.png">
 
-# Code information and technology uses goes down here ? 
+# Code Snippets/Information
 
-## Technology We Used
+Chores Main Logic
 
-- Mongoose
-- MongoDB 
-- React
-- Material UI
-- Axios
-- Dotenv
-- React-copy-to-clipboard
-- React-router-dom
+The Frontend portion of the project was mainly spent on the chores page logic. The Chores section was broken into 3 components: Todo.js, TodoForm.js, and TodoList.js.  We first set up a form using Material UI, created the onClick functions, and set variables using state. We tested basic functions to ensure that our logic made sense on the page. The next step was to connect the frontend with the backend using axios calls. The code below shows a form on TodoForm.js to add a new chore and connects it to the post route on the chores model. 
+
+```javascript
+function TodoForm(props) {
+	const [input, setInput] = useState(props.edit ? props.edit.value : '');
+	const thisUser = props.user;
+	const [taskDetail, setTaskDetail] = useState('');
+	const group = props.groupId;
+	const [rep, isRep] = useState(true);
+	const handleInput = e => {
+		setInput(e.target.value);
+	};
+
+	const handleDetail = e => {
+		setTaskDetail(e.target.value);
+	};
+
+	const handleSubmit = e => {
+		e.preventDefault();
+
+		axios.post(`${REACT_APP_SERVER_URL}/chores/new`, {
+				input,
+				thisUser,
+				taskDetail,
+				group,
+				rep,
+			})
+			.catch(err => console.log(`Post chore error:`, err));
+
+		props.onSubmit({
+			id: Math.floor(Math.random() * 10000),
+			taskName: input,
+			taskDetail: taskDetail,
+		});
+		setInput('');
+		setTaskDetail('');
+	};
+
+	return (
+		<form onSubmit={handleSubmit} className='todo-form'>
+			{props.edit ? (
+				<>
+					<input
+						placeholder='Update your item'
+						value={input}
+						onChange={handleInput}
+						name='taskName'
+						// ref={inputRef}
+						className='todo-input edit'
+					/>
+					<button onClick={handleSubmit} className='todo-button edit'>
+						Update
+					</button>
+				</>
+```
+
+## Technologies and Libraries We Used
+Frontend
+* Material UI
+* Axios
+* JWT Decode
+* React
+* React-Copy-to-Clipboard
+* React-Responsive-Carousel
+* React-router-dom
+
+Backend
+* axios
+* bcryptjs
+* cors
+* express
+* jsonwebtoken
+* mongoose
+* mongoose-float
+* node-schedule
+* passport
+* passport-jwt
+
+## Features
+* MERN Auth
+* Sessions to keep user logged in between pages
+* MERN stack
+* Venmo payment connected to each user
+* Reference models
+* CRUD functionality
 
 # Models
 
@@ -122,6 +199,7 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 | POST | /create | creates a venmo |
 
 # Future implementations for ApartMate 😊
+
 
 
 
