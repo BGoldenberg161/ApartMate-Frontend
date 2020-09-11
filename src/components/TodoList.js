@@ -6,6 +6,7 @@ import axios from 'axios';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
+import '../ToDoScroll.css';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const useStyles = makeStyles((theme) => ({
@@ -110,7 +111,9 @@ function TodoList(props) {
 	return (
 		<>
 			<TodoForm onSubmit={addTodo} user={props.user} groupId={groupId} />
+            <div className="toDoSection">
 			{todoComponents}
+            </div>
 
             <Container component="main" maxWidth="xs">
             <CssBaseline />
