@@ -80,8 +80,8 @@ We started out with a basic idea of how we wanted Apartmate to look like and lik
 | Is Done | Boolean | will be changed later on when clicked done |
 | Claim | String | will change later on when user claims a task |
 | Claim Name | String | will change when user claims tasks |
-| Is Repeating | Boolean | |
-| Never Done | Boolean | |
+| Is Repeating | Boolean | will change later on |
+| Never Done | Boolean | will change later on |
 | Date | Date | Auto-generated | 
 
 # Routes
