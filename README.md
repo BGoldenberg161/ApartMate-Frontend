@@ -198,6 +198,13 @@ Backend
 | ---- | ------ | -------------------------- |
 | POST | /create | creates a venmo |
 
+# Major Hurdles 
+
+1. One of the big hurdles we had throughtout the project was passing our user id information throughout the pages. Whenever we wanted to access this information, we always ended up getting ```undefined``` in our console.log. 
+
+2. Figuring out how to get our page to reload new chores that were being added by the user and a new group that the user created onto the page at that moment. At first, we noticed we had to refresh the page in order to get the new group to appear on the groups component. The same went for out chores page, when we someone clicked on a chore they wanted to do, the part that says ```unclaim``` didn't change with the user name showing up until you refreshed your page. One way we went about it, although we didn't want to implement but helped during the time was, ``` function refreshPage() { window.location.reload(false) } ``` and our button had ```<button onClick={refreshPage}>Click to reload!</button> ```.
+
+
 # Future implementations for ApartMate 😊
 
 
