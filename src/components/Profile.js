@@ -4,6 +4,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import Avatar from '@material-ui/core/Avatar';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 
@@ -33,12 +38,11 @@ const Profile = (props) => {
 
     const userData = props.user ?
     (<div>
-            <h1>Profile</h1>
             <p><strong>Name:</strong> {props.user.name}</p>
             <p><strong>Email:</strong> {props.user.email}</p>
             <p><strong>Venmo:</strong> {props.user.venmo}</p>
     </div>) : <h4>Loading...</h4>
-    console.log("THIS IS MY VENMO:" + props.user._id)
+    // console.log("THIS IS MY VENMO:" + props.user._id)
     const [venmoHandle, setVenmoHandle] = useState(props.user.venmo)
 
     const setUpVenmo = e => {
@@ -65,7 +69,18 @@ const Profile = (props) => {
     }
 
     return (
-      <div>
+
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <AccountCircleIcon />
+          </Avatar>
+          <Typography variant="h2">
+            Profile
+          </Typography>
+          <img src={require('../assets/images/profilePage.gif')} alt="profile" style={{maxWidth: 250}}/>
+        <div>
         {props.user ? userData : errorDiv()}
         <form onSubmit={handleSubmitVenmo} className={classes.form} noValidate autoComplete="off">
           <TextField
@@ -74,12 +89,22 @@ const Profile = (props) => {
             id="outlined-basic"
             label="you new venmo name"
             variant="outlined"
+            margin="normal"
+            fullWidth
+            color="secondary"
           />
-          <Button type="submit" className={classes.submit}>
+          <Button 
+            type="submit" 
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}>
             Submit
           </Button>
         </form>
       </div>
+      </div>
+    </Container>
     );
 }
 
