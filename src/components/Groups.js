@@ -65,6 +65,7 @@ const Groups = (props) => {
     const [groupNames, setGroupNames] = useState([])
     const [groupId, setGroupId] = useState('')
     const userId = props.user.id
+    const [noGroups, setNoGroups] = useState(true)
 
     const classes = useStyles();
 
@@ -74,6 +75,7 @@ const Groups = (props) => {
       .then(groups => {
         console.log(groups.data)
         setGroupNames(groups.data)
+        setNoGroups(false)
       })
       .catch(err => console.log(`Get groups error:`, err))
     }, [props.user.id])
@@ -93,7 +95,7 @@ const Groups = (props) => {
     const refreshPage = () => {
       window.location.reload(false);
     }
-  
+    
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -120,7 +122,8 @@ const Groups = (props) => {
           >
             👫 Create a new group!
           </Button>
-          </Link>
+          </Link><br /><br />
+          <p id="invite">Have a group invite?</p>
           <form onSubmit={handleSubmit} className={classes.form}>
           <TextField
             label="Input Group Invitation here 🤗"
@@ -133,7 +136,6 @@ const Groups = (props) => {
             fullWidth
             color="secondary"
           />
-
           <Button
             type="submit"
             fullWidth
