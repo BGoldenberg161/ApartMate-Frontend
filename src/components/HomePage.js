@@ -85,14 +85,14 @@ const HomePage = () => {
 							<div>
 								<img
 									alt=''
-									src='/https://www.triplemint.com/blog/wp-content/uploads/2018/01/Happy-roommates-feature-pixabay.com_-759x500.jpg'
+									src='https://www.wipremiertrivia.com/wp-content/uploads/2018/04/Friends-500x500.png'
 								/>
 								<p className='legend'>apartMate roommates</p>
 							</div>
 							<div>
 								<img
 									alt=''
-									src='https://cdn.crediful.com/app/uploads/2019/12/venmo.jpg'
+									src='https://www.oreillypixelparts.com/wp-content/uploads/2020/03/venmo-product-icon.jpg'
 								/>
 								<p className='legend'>Easy Venmo Splits!</p>
 							</div>
