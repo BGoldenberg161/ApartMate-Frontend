@@ -43,7 +43,6 @@ function TodoForm(props) {
 		});
 		setInput('');
 		setTaskDetail('');
-		window.location.reload(false);
 	};
 
 	return (

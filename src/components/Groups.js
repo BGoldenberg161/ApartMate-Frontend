@@ -1,4 +1,5 @@
-import React, { useState, useEffect, BrowserRouter as Router } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 // import NotFoundPage from './NotFoundPage';
 
@@ -8,7 +9,6 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
@@ -66,35 +66,34 @@ const Groups = (props) => {
     const [groupId, setGroupId] = useState('')
     const userId = props.user.id
     const [noGroups, setNoGroups] = useState(true)
+    const [newGroupAdded, setNewGroupAdded] = useState(false)
 
     const classes = useStyles();
 
-    
-    useEffect(() => {
+    const getGroups = () => {
       axios.get(`${REACT_APP_SERVER_URL}/groups?userId=${props.user.id}`)
       .then(groups => {
-        console.log(groups.data)
         setGroupNames(groups.data)
         setNoGroups(false)
       })
       .catch(err => console.log(`Get groups error:`, err))
-    }, [props.user.id])
-    console.log(groupNames)
+    }
+
+    useEffect(() => {
+      getGroups()
+      setNewGroupAdded(false)
+    }, [newGroupAdded])
 
     const handleSubmit = (e) => {
       e.preventDefault()
-
       axios.put(`${REACT_APP_SERVER_URL}/groups/add/${groupId}`, {userId})
         .then(response => {
           console.log(response)
+          setNewGroupAdded(true)
         })
-        .catch(err => console.log(`Error for adding Group ID`, err))
-      
+        .catch(err => console.log(`Error for adding Group ID`, err)) 
     }
 
-    const refreshPage = () => {
-      window.location.reload(false);
-    }
     
   return (
     <Container component="main" maxWidth="xs">
@@ -105,14 +104,14 @@ const Groups = (props) => {
       <Typography id="groups">View your groups below</Typography>
       <div id="gNames" className={classes.paper}>
           {groupNames.map((g,i) => {
-              return <Link key={i} href={`/chores/${g._id}`} group={g}> 
+              return <Link key={i} to={`/chores/${g._id}`} group={g}> 
               <Typography variant="body1" className="groupNames">
               {g.name} 
               </Typography>
               </Link> 
           })}
       </div>
-        <Link href="/creategroup" variant="body2">
+        <Link to="/creategroup" variant="body2">
         <Button
             type="submit"
             fullWidth
@@ -141,7 +140,7 @@ const Groups = (props) => {
             fullWidth
             variant="contained"
             color="primary"
-            onClick={refreshPage}
+            // onClick={refreshPage}
             className={classes.submit}
           >
             Submit

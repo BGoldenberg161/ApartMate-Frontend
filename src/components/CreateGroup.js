@@ -25,7 +25,7 @@ function Copyright() {
       {'.'}
     </Typography>
   );
-}
+};
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -41,11 +41,11 @@ const useStyles = makeStyles((theme) => ({
   },
   small: {
     width: theme.spacing(3),
-    height: theme.spacing(3),
+    height: theme.spacing(3)
   },
   large: {
     width: theme.spacing(7),
-    height: theme.spacing(7),
+    height: theme.spacing(7)
   },
   margin: {
     marginTop: '-80px'
@@ -56,42 +56,34 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 4
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(3, 0, 2)
   },
 }));
 
 const CreateGroup = (props) => {
-    const groupUser = props.user
 
+    const groupUser = props.user
     const [groupName, setGroupName] = useState('')
     const [newGroup, setNewGroup] = useState(false)
-    // const [groupUser, setGroupUser] = useState(props.user) 
-    //state that holds in the group id 
     
     const classes = useStyles();
 
     const handleSubmit = (e) => {
       e.preventDefault()
-      console.log(groupName)
-
-      // const data = { groupName }
-
       axios.post(`${REACT_APP_SERVER_URL}/groups/create`, {groupName, groupUser})
         .then(response => {
           console.log(response)
           setNewGroup(true)
         })
         .catch(err => console.log(`Create group Error Branden`, err))
-      
     }
 
     const handleGroupName = (e) => {
         setGroupName(e.target.value)
     }
 
-      if (newGroup) return <Redirect to='/groups' user={props.user} />
+    if (newGroup) return <Redirect to='/groups' user={props.user} />
 
-    
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />

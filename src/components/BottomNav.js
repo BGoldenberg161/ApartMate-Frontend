@@ -12,14 +12,12 @@ import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
 import VpnKeyOutlinedIcon from '@material-ui/icons/VpnKeyOutlined';
 
-
-
 const useStyles = makeStyles({
 	root: {
 		width: '100%',
 		position: 'fixed',
-		bottom: 0,
-	},
+		bottom: 0
+	}
 });
 
 const BottomNav = props => {
