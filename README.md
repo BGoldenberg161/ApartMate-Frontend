@@ -6,7 +6,8 @@ The basic functions of Apartmate:
 3. Every Sunday at 6PM your chores will be randomly assigned to a different team member.
 4. Easily split Venmo payments by inputting the amount & your roomates will get a text with the exact Venmo amount they need to pay you.
 
-
+## Deployed Site
+[ApartMate](https://apartmate-client.herokuapp.com/)
 
 ## Getting Started
 
