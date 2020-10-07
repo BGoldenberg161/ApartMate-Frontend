@@ -115,8 +115,7 @@ const About = () => {
 							paragraph
 						>
 							creative, friendly Software Engineers dedicated to producing ideas
-							that work damn hard for our clients.. (Slide in to the DMs for
-							Venmo Link)
+							that work damn hard for our clients.
 						</Typography>
 					</Container>
 				</div>
@@ -138,7 +137,7 @@ const About = () => {
 										<Typography>{creator.description}</Typography>
 									</CardContent>
 
-									<CardActions>
+									<CardActions style={{justifyContent: 'center'}}>
 										<Button size='small' color='primary'>
 											<a href={creator.githublink} target='_blank'>
 												Github
