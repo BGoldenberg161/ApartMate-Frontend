@@ -20,7 +20,6 @@ const Todo = (props) => {
     props.setTodos(props.todos)
   }, [checked]) 
 
-
 	const handleClaim = (e, claim) => {
 		axios
 			.put(`${REACT_APP_SERVER_URL}/chores/claim/${props.todo._id}`, { user: props.user })
