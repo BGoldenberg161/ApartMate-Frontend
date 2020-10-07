@@ -8,24 +8,32 @@ import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
+import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
 
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const Venmo = (props) => {
 	const useStyles = makeStyles(theme => ({
-		root: {
-			display: 'flex',
-			flexWrap: 'wrap',
-		},
-		margin: {
+		paper: {
+			marginTop: theme.spacing(0),
+			display: "flex",
+			flexDirection: "column",
+			alignItems: "center",
+		  },
+		  avatar: {
 			margin: theme.spacing(1),
-		},
-		withoutLabel: {
-			marginTop: theme.spacing(3),
-		},
-		textField: {
-			width: '25ch',
-		},
+			backgroundColor: theme.palette.success.main,
+		  },
+		  form: {
+			width: "100%", // Fix IE 11 issue.
+			marginTop: theme.spacing(0),
+			borderRadius: 4,
+		  },
+		  submit: {
+			margin: theme.spacing(3, 0, 2),
+		  },
 	}));
 
 
@@ -51,19 +59,27 @@ const Venmo = (props) => {
 
 	return (
 		<div>
-			<FormControl className={classes.margin} variant='outlined'>
-				<InputLabel htmlFor='outlined-adornment-amount'>Amount</InputLabel>
-				<OutlinedInput
-					id='outlined-adornment-amount'
-					value={values.amount}
-					onChange={handleChange('amount')}
-					startAdornment={<InputAdornment position='start'>$</InputAdornment>}
-					labelWidth={60}
-				/>
-				<Button onClick={createRequest} variant='outlined' color='primary'>
-					Send me $$$
-				</Button>
-			</FormControl>
+			<Container component="main" maxWidth="xs">
+				<CssBaseline />
+				<div className={classes.paper}>
+				<Typography variant="h2" style={{paddingBottom: 20}}>
+            		Venmo
+          		</Typography>
+				<FormControl className={classes.margin} variant='outlined'>
+					<InputLabel htmlFor='outlined-adornment-amount'>Amount</InputLabel>
+					<OutlinedInput
+						id='outlined-adornment-amount'
+						value={values.amount}
+						onChange={handleChange('amount')}
+						startAdornment={<InputAdornment position='start'>$</InputAdornment>}
+						labelWidth={60}
+					/>
+					<Button onClick={createRequest} variant='outlined' color='primary'>
+						Send me $$$
+					</Button>
+				</FormControl>
+				</div>
+			</Container>
 		</div>
 	);
 };
